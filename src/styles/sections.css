@@ -376,11 +376,21 @@
 
 .project__cover {
   position: relative;
+  display: block;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border: 1px solid var(--line-dark);
   background: var(--card-ink);
-  transition: border-color 0.4s var(--ease-out);
+  transition: border-color 0.4s var(--ease-out), transform 0.5s var(--ease-out);
+}
+
+.project__cover:hover {
+  transform: translateY(-6px);
+}
+
+.project__cover:focus-visible {
+  outline: 2px solid var(--volt);
+  outline-offset: 3px;
 }
 
 .project__cover:hover {
