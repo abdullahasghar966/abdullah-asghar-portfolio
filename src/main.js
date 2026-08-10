@@ -11,7 +11,6 @@ import { initMarquees } from './js/marquee.js';
 import { initHorizontal } from './js/horizontal.js';
 import { initClock } from './js/clock.js';
 import { initTelemetry } from './js/telemetry.js';
-import { initWalk } from './js/walk.js';
 import { setInitialStates, heroIntro, initReveals } from './js/reveals.js';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -34,7 +33,6 @@ async function init() {
   initClock();
   initMarquees();
   initReveals();
-  initWalk();
   initHorizontal();
   initTelemetry();
 
