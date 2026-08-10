@@ -1,47 +1,46 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SplitText } from 'gsap/SplitText';
 
 import { runPreloader } from './js/preloader.js';
-import { initScroll } from './js/scroll.js';
+import { initScroll, scrollTo } from './js/scroll.js';
 import { initCursor } from './js/cursor.js';
-import { initMagnetic } from './js/magnetic.js';
 import { initMenu } from './js/menu.js';
-import { initMarquees } from './js/marquee.js';
-import { initHorizontal } from './js/horizontal.js';
 import { initClock } from './js/clock.js';
-import { initTelemetry } from './js/telemetry.js';
-import { initWalk } from './js/walk.js';
-import { setInitialStates, heroIntro, initReveals } from './js/reveals.js';
+import { initWorld } from './js/world.js';
+import { drawShipChart } from './js/telemetry.js';
+import { qsa } from './js/utils.js';
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(ScrollTrigger);
 
 history.scrollRestoration = 'manual';
 window.scrollTo(0, 0);
 
 async function init() {
-  setInitialStates();
-
-  // counter starts immediately; everything else boots while it runs
   const preloaderDone = runPreloader();
 
   await document.fonts.ready;
 
   initScroll();
   initCursor();
-  initMagnetic();
   initMenu();
   initClock();
-  initMarquees();
-  initReveals();
-  initWalk();
-  initHorizontal();
-  initTelemetry();
+  drawShipChart();
+
+  const world = initWorld();
+
+  // Nav and menu links point at stations along the corridor, not at anchors —
+  // translate each into the scroll position that walks you there.
+  if (world) {
+    qsa('[data-goto]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        scrollTo(world.scrollForStation(Number(link.dataset.goto)));
+      });
+    });
+  }
 
   await preloaderDone;
-
   ScrollTrigger.refresh();
-  heroIntro();
 }
 
 init();

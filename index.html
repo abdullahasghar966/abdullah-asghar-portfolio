@@ -4,20 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abdullah Asghar — Developer Portfolio</title>
-  <meta name="description" content="Abdullah Asghar — CS student & self-taught developer. React · Python · ML/AI · TypeScript. Shipping real products from Islamabad, Pakistan." />
+  <meta name="description" content="Abdullah Asghar — CS student & self-taught developer. React · Python · ML/AI · TypeScript. Walk the corridor." />
   <meta property="og:title" content="Abdullah Asghar — Developer Portfolio" />
-  <meta property="og:description" content="CS student & self-taught developer. React · Python · ML/AI · TypeScript. Always shipping." />
-  <meta name="theme-color" content="#0b0b0c" />
+  <meta property="og:description" content="CS student & self-taught developer. 14 repos in 81 days. Walk the corridor." />
+  <meta name="theme-color" content="#f0ece0" />
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <script>document.documentElement.classList.add('js');</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Architects+Daughter&family=Caveat:wght@500;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Architects+Daughter&family=Caveat:wght@500;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="./src/styles/main.css" />
 </head>
-<body data-theme="dark">
+<body>
+
+  <!-- ============ SKETCH FILTERS ============ -->
+  <svg class="sketch-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="sk-rough" x="-14%" y="-14%" width="128%" height="128%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="3" seed="4" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="4.4" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="sk-rough-soft" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="9" result="n" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="2.1" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
 
   <!-- ============ PRELOADER ============ -->
   <div class="preloader" id="preloader" aria-hidden="true">
@@ -29,49 +43,35 @@
         <span class="preloader__word preloader__word--outline" data-preloader-word>ASGHAR</span>
       </div>
       <div class="preloader__meta">
-        <span class="preloader__tag">PORTFOLIO — 2026</span>
+        <span class="preloader__tag">lacing up…</span>
         <span class="preloader__counter"><span id="preloader-count">000</span><sup>%</sup></span>
       </div>
     </div>
     <div class="preloader__bar"><span id="preloader-bar"></span></div>
   </div>
 
-  <!-- ============ SKETCH FILTERS ============ -->
-  <svg class="sketch-defs" aria-hidden="true" focusable="false">
-    <defs>
-      <!-- roughen: pushes every edge around so straight lines read as drawn -->
-      <filter id="sk-rough" x="-14%" y="-14%" width="128%" height="128%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="3" seed="4" result="n" />
-        <feDisplacementMap in="SourceGraphic" in2="n" scale="4.4" xChannelSelector="R" yChannelSelector="G" />
-      </filter>
-    </defs>
-  </svg>
-
-  <!-- ============ CUSTOM CURSOR ============ -->
+  <!-- ============ CURSOR ============ -->
   <div class="cursor" id="cursor" aria-hidden="true">
     <div class="cursor__dot" id="cursor-dot"></div>
     <div class="cursor__ring" id="cursor-ring"><span class="cursor__label" id="cursor-label"></span></div>
   </div>
 
-  <!-- ============ SCROLL PROGRESS ============ -->
   <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
 
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
-    <a href="#home" class="nav__logo" data-cursor="link" aria-label="Home">
+    <a href="#s-hero" class="nav__logo" data-goto="0" data-cursor="link" aria-label="Back to the start">
       <span class="nav__logo-main">ABDULLAH ASGHAR</span>
-      <span class="nav__logo-sub">FOLIO / 26</span>
+      <span class="nav__logo-sub">folio / 26</span>
     </a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="#work" class="nav__link" data-cursor="link"><sup>01</sup>WORK</a>
-      <a href="#about" class="nav__link" data-cursor="link"><sup>02</sup>ABOUT</a>
-      <a href="#stack" class="nav__link" data-cursor="link"><sup>03</sup>STACK</a>
-      <a href="#telemetry" class="nav__link" data-cursor="link"><sup>04</sup>DATA</a>
-      <a href="#roles" class="nav__link" data-cursor="link"><sup>05</sup>ROLES</a>
-      <a href="#contact" class="nav__link" data-cursor="link"><sup>06</sup>CONTACT</a>
+      <a href="#s-statement" class="nav__link" data-goto="1" data-cursor="link">ABOUT</a>
+      <a href="#s-thew" class="nav__link" data-goto="3" data-cursor="link">WORK</a>
+      <a href="#s-stack" class="nav__link" data-goto="13" data-cursor="link">STACK</a>
+      <a href="#s-contact" class="nav__link" data-goto="15" data-cursor="link">CONTACT</a>
     </nav>
     <div class="nav__right">
-      <span class="nav__time" aria-label="Local time in Islamabad">ISB <span id="nav-clock">--:--</span></span>
+      <span class="nav__time">ISB <span id="nav-clock">--:--</span></span>
       <button class="nav__burger" id="menu-toggle" data-cursor="link" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
         <span class="nav__burger-line"></span>
         <span class="nav__burger-line"></span>
@@ -79,588 +79,270 @@
     </div>
   </header>
 
-  <!-- ============ FULLSCREEN MENU ============ -->
+  <!-- ============ MENU ============ -->
   <div class="menu" id="menu" aria-hidden="true">
     <div class="menu__inner">
       <nav class="menu__nav" aria-label="Menu">
-        <a href="#home" class="menu__link" data-cursor="link"><span class="menu__num">01</span><span class="menu__word"><span class="menu__word-inner">HOME</span></span></a>
-        <a href="#work" class="menu__link" data-cursor="link"><span class="menu__num">02</span><span class="menu__word"><span class="menu__word-inner">WORK</span></span></a>
-        <a href="#about" class="menu__link" data-cursor="link"><span class="menu__num">03</span><span class="menu__word"><span class="menu__word-inner">ABOUT</span></span></a>
-        <a href="#stack" class="menu__link" data-cursor="link"><span class="menu__num">04</span><span class="menu__word"><span class="menu__word-inner">STACK</span></span></a>
-        <a href="#telemetry" class="menu__link" data-cursor="link"><span class="menu__num">05</span><span class="menu__word"><span class="menu__word-inner">DATA</span></span></a>
-        <a href="#roles" class="menu__link" data-cursor="link"><span class="menu__num">06</span><span class="menu__word"><span class="menu__word-inner">ROLES</span></span></a>
-        <a href="#contact" class="menu__link" data-cursor="link"><span class="menu__num">07</span><span class="menu__word"><span class="menu__word-inner">CONTACT</span></span></a>
+        <a href="#s-hero" class="menu__link" data-goto="0" data-cursor="link"><span class="menu__num">01</span><span class="menu__word"><span class="menu__word-inner">START</span></span></a>
+        <a href="#s-statement" class="menu__link" data-goto="1" data-cursor="link"><span class="menu__num">02</span><span class="menu__word"><span class="menu__word-inner">ABOUT</span></span></a>
+        <a href="#s-thew" class="menu__link" data-goto="3" data-cursor="link"><span class="menu__num">03</span><span class="menu__word"><span class="menu__word-inner">WORK</span></span></a>
+        <a href="#s-telemetry" class="menu__link" data-goto="12" data-cursor="link"><span class="menu__num">04</span><span class="menu__word"><span class="menu__word-inner">DATA</span></span></a>
+        <a href="#s-stack" class="menu__link" data-goto="13" data-cursor="link"><span class="menu__num">05</span><span class="menu__word"><span class="menu__word-inner">STACK</span></span></a>
+        <a href="#s-contact" class="menu__link" data-goto="15" data-cursor="link"><span class="menu__num">06</span><span class="menu__word"><span class="menu__word-inner">CONTACT</span></span></a>
       </nav>
       <div class="menu__aside">
         <div class="menu__group">
-          <span class="menu__label">SOCIALS</span>
+          <span class="menu__label">socials</span>
           <a href="https://github.com/abdullahasghar966" target="_blank" rel="noopener" class="menu__social" data-cursor="link">GITHUB ↗</a>
           <a href="https://www.linkedin.com/in/abdullah-asghar6767/" target="_blank" rel="noopener" class="menu__social" data-cursor="link">LINKEDIN ↗</a>
         </div>
         <div class="menu__group">
-          <span class="menu__label">GET IN TOUCH</span>
-          <a href="mailto:abdullah.asghar.cs@gmail.com" class="menu__social" data-cursor="link">ABDULLAH.ASGHAR.CS@GMAIL.COM</a>
-        </div>
-        <div class="menu__group">
-          <span class="menu__label">LOCATION</span>
-          <span class="menu__social">ISLAMABAD, PAKISTAN — GMT+5</span>
+          <span class="menu__label">get in touch</span>
+          <a href="mailto:abdullah.asghar.cs@gmail.com" class="menu__social" data-cursor="link">abdullah.asghar.cs@gmail.com</a>
         </div>
       </div>
     </div>
-    <div class="menu__footer">
-      <span>©2026 ABDULLAH ASGHAR</span>
-      <span>ALWAYS SHIPPING.</span>
-    </div>
+    <div class="menu__footer"><span>©2026 ABDULLAH ASGHAR</span><span>always shipping.</span></div>
   </div>
 
   <main id="main">
+    <!-- ============ THE WORLD — one infinite corridor ============ -->
+    <section class="world" id="world">
+      <div class="world__pin" id="world-pin">
+        <div class="world__stage" id="world-stage" aria-hidden="true"></div>
+        <div class="world__vignette" aria-hidden="true"></div>
 
-    <!-- ============ HERO ============ -->
-    <section class="hero" id="home">
-      <div class="hero__bg" aria-hidden="true">
-        <div class="hero__grid"></div>
-        <div class="hero__orb" id="hero-orb"></div>
+        <div class="world__hud" aria-hidden="true">
+          <span class="world__hud-label">DISTANCE WALKED</span>
+          <span class="world__hud-dist" id="world-dist">0m</span>
+        </div>
+        <p class="world__hint" aria-hidden="true">keep walking<i>↓</i></p>
+        <a href="#s-contact" class="world__skip" data-goto="15" data-cursor="link">skip to contact ↴</a>
       </div>
 
-      <div class="hero__top">
-        <span class="hero__meta reveal-fade">PORTFOLIO — 2026 EDITION</span>
-        <span class="hero__meta reveal-fade">BASED IN ISLAMABAD, PK</span>
-        <span class="hero__meta hero__meta--wide reveal-fade">SCROLL TO EXPLORE ↓</span>
-      </div>
+      <!-- Every station below is real content in document order. With JS on it
+           gets lifted into the corridor; with JS off (or reduced motion) it
+           simply reads as a page. -->
+      <div class="world__pool" id="station-pool">
 
-      <h1 class="hero__title" aria-label="Abdullah Asghar">
-        <span class="hero__line" data-hero-line><span class="hero__line-inner">ABDULLAH</span></span>
-        <span class="hero__line hero__line--indent" data-hero-line>
-          <span class="hero__line-inner"><em class="hero__accent">ASGHAR</em><span class="hero__reg">®</span></span>
-        </span>
-      </h1>
+        <article class="station station--hero" id="s-hero" data-size="hero">
+          <div class="station__frame" aria-hidden="true"></div>
+          <div class="station__body">
+            <span class="station__eyebrow">portfolio — 2026 · islamabad, pk</span>
+            <h1 class="station__title">ABDULLAH<br /><span class="hi">ASGHAR</span></h1>
+            <p class="station__lead">CS student &amp; self-taught developer.<br />React · Python · ML/AI · TypeScript.</p>
+            <p class="station__hand">start walking →</p>
+          </div>
+        </article>
 
-      <div class="hero__bottom">
-        <p class="hero__tagline reveal-fade">
-          CS STUDENT &amp; SELF-TAUGHT DEVELOPER —<br />
-          REACT · PYTHON · ML/AI · TYPESCRIPT.<br />
-          I VIBE-CODE WITH FULL UNDERSTANDING.
-        </p>
+        <article class="station" id="s-statement" data-size="wide">
+          <div class="station__frame" aria-hidden="true"></div>
+          <div class="station__body">
+            <span class="station__eyebrow">message from abdullah</span>
+            <h2 class="station__h2">SELF-TAUGHT.<br /><span class="hi">EVERY LINE.</span></h2>
+            <p class="station__copy">Redefining what self-taught means — shipping real products, chasing craft in every detail, building a legacy in code.</p>
+            <p class="station__quote">“It doesn’t matter where you start. I taught myself to build, and I understand every line I ship.”</p>
+          </div>
+        </article>
 
-        <a class="hero__ticket reveal-fade" href="https://dahlia-islamabad.vercel.app" target="_blank" rel="noopener" data-cursor="view" data-magnetic>
-          <span class="hero__ticket-label">LATEST SHIP</span>
-          <span class="hero__ticket-name">DAHLIA<br />ISLAMABAD</span>
-          <span class="hero__ticket-tag">NEXT.JS 15 — LIVE ON VERCEL ↗</span>
-        </a>
-
-        <div class="hero__badge reveal-fade" aria-hidden="true" data-magnetic>
-          <svg class="hero__badge-svg" id="hero-badge" viewBox="0 0 120 120">
-            <defs><path id="badge-circle" d="M 60,60 m -44,0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0"></path></defs>
-            <text><textPath href="#badge-circle">OPEN TO WORK • FREELANCE • COLLABS • OPEN TO WORK •</textPath></text>
-          </svg>
-          <span class="hero__badge-core">✦</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ THE WALK (infinite corridor) ============ -->
-    <section class="walk sketch-paper" id="walk">
-      <div class="walk__pin">
-        <div class="walk__stage"></div>
-        <div class="walk__fog"></div>
-
-        <div class="walk__intro">
-          <span class="walk__intro-label">THE CORRIDOR — IT DOESN’T END</span>
-          <h2 class="walk__intro-title">WALK THROUGH <span class="hi">THE WORK</span></h2>
-        </div>
-
-        <div class="walk__hud">
-          <span class="walk__hud-label">DISTANCE WALKED</span>
-          <span class="walk__hud-dist" id="walk-dist">0m</span>
-        </div>
-
-        <p class="walk__hint">keep going<i>↓</i></p>
-      </div>
-    </section>
-
-    <!-- ============ MARQUEE 1 ============ -->
-    <div class="marquee marquee--border" data-marquee data-speed="1">
-      <div class="marquee__track">
-        <div class="marquee__group">
-          <span>REACT</span><i>✦</i><span>NEXT.JS</span><i>✦</i><span>TYPESCRIPT</span><i>✦</i><span>PYTHON</span><i>✦</i><span>ML/AI</span><i>✦</i><span>GSAP</span><i>✦</i><span>THREE.JS</span><i>✦</i><span>TAILWIND</span><i>✦</i><span>FIREBASE</span><i>✦</i><span>FLUTTER</span><i>✦</i>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============ STATEMENT / ABOUT ============ -->
-    <section class="statement section--paper" id="about">
-      <div class="section-head">
-        <span class="section-head__label reveal-fade">MESSAGE FROM ABDULLAH</span>
-        <span class="section-head__label reveal-fade">( EST. 2023 )</span>
-      </div>
-
-      <p class="statement__text" data-scrub-words>
-        Redefining what self-taught means. Shipping real products, chasing craft in every detail, bringing it all in all ways — building a legacy in code, on and off the keyboard.
-      </p>
-
-      <div class="statement__quote-wrap">
-        <div class="statement__rule" aria-hidden="true"></div>
-        <blockquote class="statement__quote reveal-lines">
-          “It doesn’t matter where you start — I taught myself to build, and I understand every line I ship.”
-        </blockquote>
-        <div class="statement__rule" aria-hidden="true"></div>
-      </div>
-
-      <div class="stats">
-        <div class="stats__item">
-          <span class="stats__num"><span data-count="14">0</span></span>
-          <span class="stats__label">PUBLIC REPOS</span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__num"><span data-count="4">0</span></span>
-          <span class="stats__label">LIVE DEPLOYMENTS</span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__num"><span data-count="12">0</span>+</span>
-          <span class="stats__label">TECHNOLOGIES</span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__num"><span data-count="2026">2023</span></span>
-          <span class="stats__label">CURRENT SEASON</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ HALL OF FAME (HORIZONTAL) ============ -->
-    <section class="hof" id="work">
-      <div class="hof__pin" id="hof-pin">
-        <div class="hof__progress" aria-hidden="true"><span id="hof-progress-bar"></span></div>
-        <div class="hof__track" id="hof-track">
-
-          <!-- Intro panel -->
-          <article class="hof__panel hof__panel--intro">
-            <span class="hof__intro-label">SELECTED WORK — DRAG THE SCROLL</span>
-            <h2 class="hof__intro-title">
-              <span>PROJECTS</span>
-              <span class="hof__intro-outline">HALL OF FAME</span>
-            </h2>
-            <p class="hof__intro-copy">From animation-heavy showcases to full-stack marketplaces — every build shipped with intent. Scroll sideways through the archive.</p>
-            <span class="hof__intro-arrow" aria-hidden="true">⟶</span>
-          </article>
-
-          <!-- 01 THE W -->
-          <article class="hof__panel project" data-accent="#ff6b00" data-ink="#120a06">
-            <a class="project__cover" href="https://github.com/abdullahasghar966/the-w-wnba-showcase" target="_blank" rel="noopener" data-cursor="view" aria-label="The W — WNBA Showcase on GitHub">
-              <div class="project__cover-bg"></div>
-              <span class="project__cover-word" data-cover-parallax>THE&nbsp;W</span>
-              <span class="project__cover-index">01</span>
-              <span class="project__cover-meta">SCROLL-DRIVEN SHOWCASE — 8 PLAYERS</span>
-              <span class="project__cover-ring" aria-hidden="true"></span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">THE W — WNBA SHOWCASE</h3>
-              <p class="project__desc">Awwwards-caliber scroll experience. Broadcast-brutalist design, physics carousel, custom cursor and a scoped WebGL hover shader.</p>
-              <div class="project__tags"><span>REACT</span><span>WEBGL</span><span>GSAP</span></div>
-              <div class="project__links">
-                <a href="https://wnba-players-showcase.vercel.app" target="_blank" rel="noopener" data-cursor="link" data-magnetic>LIVE SITE ↗</a>
-                <a href="https://github.com/abdullahasghar966/the-w-wnba-showcase" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 02 DAHLIA -->
-          <article class="hof__panel project" data-accent="#7fb069" data-ink="#0d130b">
-            <a class="project__cover" href="https://github.com/abdullahasghar966/dahlia-islamabad" target="_blank" rel="noopener" data-cursor="view" aria-label="Dahlia Islamabad on GitHub">
-              <div class="project__cover-bg"></div>
-              <span class="project__cover-word" data-cover-parallax>DAHLIA</span>
-              <span class="project__cover-index">02</span>
-              <span class="project__cover-meta">CAFE + PLANT NURSERY — F-6 MARKAZ</span>
-              <span class="project__cover-ring" aria-hidden="true"></span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">DAHLIA ISLAMABAD</h3>
-              <p class="project__desc">A living brand site for a cafe & plant nursery. Next.js 15, React 19, Tailwind v4 with Lenis-smooth GSAP motion throughout.</p>
-              <div class="project__tags"><span>NEXT.JS 15</span><span>TAILWIND V4</span><span>LENIS</span></div>
-              <div class="project__links">
-                <a href="https://dahlia-islamabad.vercel.app" target="_blank" rel="noopener" data-cursor="link" data-magnetic>LIVE SITE ↗</a>
-                <a href="https://github.com/abdullahasghar966/dahlia-islamabad" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 03 THE BODYGUARD -->
-          <article class="hof__panel project" data-accent="#ffcd00" data-ink="#131005">
-            <a class="project__cover" href="https://github.com/abdullahasghar966/the-bodyguard" target="_blank" rel="noopener" data-cursor="view" aria-label="The Bodyguard on GitHub">
-              <div class="project__cover-bg"></div>
-              <span class="project__cover-word" data-cover-parallax>NO.8</span>
-              <span class="project__cover-index">03</span>
-              <span class="project__cover-meta">SINGLE-PLAYER SHOWCASE — INDIANA FEVER</span>
-              <span class="project__cover-ring" aria-hidden="true"></span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">THE BODYGUARD</h3>
-              <p class="project__desc">Interactive tribute to Sophie Cunningham. Flat Fever-gold, kinetic type, ink-smear hero and a draggable physics shrine with easter eggs.</p>
-              <div class="project__tags"><span>REACT 18</span><span>VITE</span><span>PHYSICS</span></div>
-              <div class="project__links">
-                <a href="https://08-sophie-cunningham.vercel.app" target="_blank" rel="noopener" data-cursor="link" data-magnetic>LIVE SITE ↗</a>
-                <a href="https://github.com/abdullahasghar966/the-bodyguard" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 04 NEXUS MARKET -->
-          <article class="hof__panel project" data-accent="#8b7cf6" data-ink="#0d0a16">
-            <a class="project__cover" href="https://github.com/abdullahasghar966/nexus-market" target="_blank" rel="noopener" data-cursor="view" aria-label="Nexus Market on GitHub">
-              <div class="project__cover-bg"></div>
-              <span class="project__cover-word" data-cover-parallax>NEXUS</span>
-              <span class="project__cover-index">04</span>
-              <span class="project__cover-meta">MULTI-VENDOR MARKETPLACE — 3 ROLES</span>
-              <span class="project__cover-ring" aria-hidden="true"></span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">NEXUS MARKET</h3>
-              <p class="project__desc">Production-grade multi-vendor e-commerce. Customer, vendor & admin roles, realtime stock and order tracking, reviews with moderation.</p>
-              <div class="project__tags"><span>NEXT.JS 14</span><span>FIREBASE</span><span>STRIPE</span></div>
-              <div class="project__links">
-                <a href="https://github.com/abdullahasghar966/nexus-market" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 05 MARGIN -->
-          <article class="hof__panel project" data-accent="#e8c547" data-ink="#12100a">
-            <a class="project__cover" href="https://github.com/abdullahasghar966/sticky-notes-app" target="_blank" rel="noopener" data-cursor="view" aria-label="Margin — Sticky Notes on GitHub">
-              <div class="project__cover-bg"></div>
-              <span class="project__cover-word" data-cover-parallax>MARGIN</span>
-              <span class="project__cover-index">05</span>
-              <span class="project__cover-meta">VOICE-FIRST STICKY NOTES — LOCAL-FIRST</span>
-              <span class="project__cover-ring" aria-hidden="true"></span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">MARGIN — STICKY NOTES</h3>
-              <p class="project__desc">A calm, paper-inspired notes app. Type or speak, organize on a masonry wall, everything persists locally — editorial design, end-to-end motion.</p>
-              <div class="project__tags"><span>REACT</span><span>FRAMER MOTION</span><span>SPEECH API</span></div>
-              <div class="project__links">
-                <a href="https://stickynotesapp-two.vercel.app" target="_blank" rel="noopener" data-cursor="link" data-magnetic>LIVE SITE ↗</a>
-                <a href="https://github.com/abdullahasghar966/sticky-notes-app" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 06 AI CHATBOT -->
-          <article class="hof__panel project" data-accent="#3ddad7" data-ink="#081213">
-            <a class="project__cover" href="https://github.com/abdullahasghar966/ai-assistant-chatbot" target="_blank" rel="noopener" data-cursor="view" aria-label="AI Assistant Chatbot on GitHub">
-              <div class="project__cover-bg"></div>
-              <span class="project__cover-word" data-cover-parallax>ORBIT</span>
-              <span class="project__cover-index">06</span>
-              <span class="project__cover-meta">LIVE GROQ STREAMING — VOICE I/O</span>
-              <span class="project__cover-ring" aria-hidden="true"></span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">AI ASSISTANT CHATBOT</h3>
-              <p class="project__desc">General-purpose AI chat with live token streaming, voice input/output and an Insights panel — summaries, you-vs-AI split, themes.</p>
-              <div class="project__tags"><span>NEXT.JS 14</span><span>GROQ</span><span>TYPESCRIPT</span></div>
-              <div class="project__links">
-                <a href="https://github.com/abdullahasghar966/ai-assistant-chatbot" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 07 VOID -->
-          <article class="hof__panel project" data-accent="#54f2a6" data-ink="#06110c">
-            <a class="project__cover" href="https://github.com/abdullahasghar966/void-resume-analyzer" target="_blank" rel="noopener" data-cursor="view" aria-label="Void Resume Analyzer on GitHub">
-              <div class="project__cover-bg"></div>
-              <span class="project__cover-word" data-cover-parallax>VOID</span>
-              <span class="project__cover-index">07</span>
-              <span class="project__cover-meta">AI RESUME ANALYZER — TERMINAL THEME</span>
-              <span class="project__cover-ring" aria-hidden="true"></span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">VOID RESUME ANALYZER</h3>
-              <p class="project__desc">AI-powered resume analysis wrapped in a bioluminescent terminal aesthetic — scoring, insights and rewrites at a keystroke.</p>
-              <div class="project__tags"><span>TYPESCRIPT</span><span>AI</span><span>DESIGN</span></div>
-              <div class="project__links">
-                <a href="https://github.com/abdullahasghar966/void-resume-analyzer" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 08 GOLD TERMINAL -->
-          <article class="hof__panel project" data-accent="#f2b632" data-ink="#120e05">
-            <a class="project__cover" href="https://github.com/abdullahasghar966/xauusd-gold-terminal" target="_blank" rel="noopener" data-cursor="view" aria-label="XAUUSD Gold Terminal on GitHub">
-              <div class="project__cover-bg"></div>
-              <span class="project__cover-word" data-cover-parallax>XAU/USD</span>
-              <span class="project__cover-index">08</span>
-              <span class="project__cover-meta">GOLD INTELLIGENCE — 2015–2026 DATA</span>
-              <span class="project__cover-ring" aria-hidden="true"></span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">GOLD TERMINAL</h3>
-              <p class="project__desc">XAUUSD intelligence terminal — a decade of price action, RSI, Bollinger bands, drawdowns, return distributions, PNG/PDF export.</p>
-              <div class="project__tags"><span>JAVASCRIPT</span><span>DATA-VIZ</span><span>FINANCE</span></div>
-              <div class="project__links">
-                <a href="https://github.com/abdullahasghar966/xauusd-gold-terminal" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Outro panel -->
-          <article class="hof__panel hof__panel--outro">
-            <h2 class="hof__outro-title">WANT<br />MORE?</h2>
-            <p class="hof__outro-copy">The full archive lives just below — every repo, every experiment.</p>
-            <span class="hof__outro-arrow" aria-hidden="true">↓</span>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ ARCHIVE ============ -->
-    <section class="archive section--paper" id="archive">
-      <div class="section-head">
-        <span class="section-head__label reveal-fade">FULL ARCHIVE</span>
-        <span class="section-head__label reveal-fade">( 14 PUBLIC REPOS )</span>
-      </div>
-      <h2 class="archive__title reveal-lines">EVERY BUILD<br /><em>ON RECORD</em></h2>
-
-      <ul class="archive__list">
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/dahlia-islamabad" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">01</span><span class="archive__name">DAHLIA ISLAMABAD</span><span class="archive__stack">NEXT.JS 15 · GSAP</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/the-bodyguard" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">02</span><span class="archive__name">THE BODYGUARD</span><span class="archive__stack">REACT 18 · VITE</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/the-w-wnba-showcase" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">03</span><span class="archive__name">THE W — WNBA</span><span class="archive__stack">REACT · WEBGL</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/sticky-notes-app" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">04</span><span class="archive__name">MARGIN — STICKY NOTES</span><span class="archive__stack">REACT · FRAMER MOTION</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/nexus-market" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">05</span><span class="archive__name">NEXUS MARKET</span><span class="archive__stack">NEXT.JS · FIREBASE · STRIPE</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/ai-assistant-chatbot" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">06</span><span class="archive__name">AI ASSISTANT CHATBOT</span><span class="archive__stack">NEXT.JS · GROQ</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/aperture-gallery" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">07</span><span class="archive__name">APERTURE GALLERY</span><span class="archive__stack">REACT · UNSPLASH API</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/void-resume-analyzer" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">08</span><span class="archive__name">VOID RESUME ANALYZER</span><span class="archive__stack">TYPESCRIPT · AI</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/xauusd-gold-terminal" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">09</span><span class="archive__name">XAUUSD GOLD TERMINAL</span><span class="archive__stack">JAVASCRIPT · DATA-VIZ</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/internee-pk-redesign" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">10</span><span class="archive__name">INTERNEE.PK REDESIGN</span><span class="archive__stack">REACT · THREE.JS</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/fitness-tracker-mad" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">11</span><span class="archive__name">FITNESS TRACKER</span><span class="archive__stack">FLUTTER · DART</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/DoodleBooth-Pixel-Sticker-Maker" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">12</span><span class="archive__name">DOODLEBOOTH</span><span class="archive__stack">TYPESCRIPT · CLAUDE API</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/L-SEC-xor-cipher-masm" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">13</span><span class="archive__name">L-SEC CIPHER</span><span class="archive__stack">X86 MASM ASSEMBLY</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-      </ul>
-    </section>
-
-    <!-- ============ MARQUEE 2 ============ -->
-    <div class="marquee marquee--big" data-marquee data-speed="-1">
-      <div class="marquee__track">
-        <div class="marquee__group">
-          <span class="marquee__ghost">ALWAYS SHIPPING</span><i>✦</i><span class="marquee__ghost">ALWAYS LEARNING</span><i>✦</i>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============ ON / OFF KEYBOARD ============ -->
-    <section class="split">
-      <a class="split__card" href="https://github.com/abdullahasghar966" target="_blank" rel="noopener" data-cursor="view">
-        <div class="split__bg split__bg--on"></div>
-        <span class="split__label">GITHUB — 14 REPOS</span>
-        <h2 class="split__title"><span>ON</span><span>KEYBOARD</span></h2>
-        <p class="split__copy">Latest commits, experiments and every line of shipped code — straight from the source.</p>
-        <span class="split__cta">VISIT GITHUB ↗</span>
-      </a>
-      <a class="split__card" href="https://www.linkedin.com/in/abdullah-asghar6767/" target="_blank" rel="noopener" data-cursor="view">
-        <div class="split__bg split__bg--off"></div>
-        <span class="split__label">LINKEDIN — THE HUMAN</span>
-        <h2 class="split__title"><span>OFF</span><span>KEYBOARD</span></h2>
-        <p class="split__copy">CS undergrad at COMSATS, F1 weekends, and the story behind the commits.</p>
-        <span class="split__cta">VISIT LINKEDIN ↗</span>
-      </a>
-    </section>
-
-    <!-- ============ STACK ============ -->
-    <section class="stack section--paper" id="stack">
-      <div class="section-head">
-        <span class="section-head__label reveal-fade">THE GARAGE</span>
-        <span class="section-head__label reveal-fade">( TOOLS &amp; TECHNOLOGIES )</span>
-      </div>
-      <h2 class="stack__title reveal-lines">BUILT<br /><em>WITH</em></h2>
-
-      <div class="stack__grid">
-        <div class="stack__col" data-stack-col>
-          <span class="stack__col-label">01 — FRONTEND</span>
-          <ul>
-            <li data-cursor="link">REACT</li>
-            <li data-cursor="link">NEXT.JS</li>
-            <li data-cursor="link">TYPESCRIPT</li>
-            <li data-cursor="link">TAILWIND CSS</li>
-            <li data-cursor="link">VITE</li>
-          </ul>
-        </div>
-        <div class="stack__col" data-stack-col>
-          <span class="stack__col-label">02 — MOTION &amp; 3D</span>
-          <ul>
-            <li data-cursor="link">GSAP</li>
-            <li data-cursor="link">FRAMER MOTION</li>
-            <li data-cursor="link">THREE.JS</li>
-            <li data-cursor="link">LENIS</li>
-            <li data-cursor="link">WEBGL</li>
-          </ul>
-        </div>
-        <div class="stack__col" data-stack-col>
-          <span class="stack__col-label">03 — BACK &amp; DATA</span>
-          <ul>
-            <li data-cursor="link">NODE.JS</li>
-            <li data-cursor="link">FIREBASE</li>
-            <li data-cursor="link">MONGODB</li>
-            <li data-cursor="link">STRIPE</li>
-            <li data-cursor="link">PYTHON</li>
-          </ul>
-        </div>
-        <div class="stack__col" data-stack-col>
-          <span class="stack__col-label">04 — AI &amp; BEYOND</span>
-          <ul>
-            <li data-cursor="link">ML / AI</li>
-            <li data-cursor="link">CLAUDE API</li>
-            <li data-cursor="link">GROQ</li>
-            <li data-cursor="link">FLUTTER</li>
-            <li data-cursor="link">X86 ASSEMBLY</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ TELEMETRY ============ -->
-    <section class="telemetry" id="telemetry">
-      <div class="section-head">
-        <span class="section-head__label reveal-fade">TELEMETRY</span>
-        <span class="section-head__label reveal-fade">( SOURCED FROM GITHUB )</span>
-      </div>
-      <h2 class="telemetry__title reveal-lines">14 REPOS.<br /><em>81 DAYS.</em></h2>
-      <p class="telemetry__sub reveal-fade">Every public repo on the account was created between May 9 and July 28, 2026. One long shipping streak, charted.</p>
-
-      <div class="telemetry__grid">
-        <figure class="telemetry__chart">
-          <figcaption class="telemetry__caption">LANGUAGE SPLIT — 13 TAGGED REPOS</figcaption>
-          <div class="langbars" id="langbars">
-            <div class="langbars__row" data-value="6" data-max="6" title="JavaScript — 6 of 13 repos (46%)">
-              <span class="langbars__label">JAVASCRIPT</span>
-              <span class="langbars__track"><span class="langbars__fill"></span></span>
-              <span class="langbars__value" data-roll="6">0</span>
-            </div>
-            <div class="langbars__row" data-value="5" data-max="6" title="TypeScript — 5 of 13 repos (38%)">
-              <span class="langbars__label">TYPESCRIPT</span>
-              <span class="langbars__track"><span class="langbars__fill"></span></span>
-              <span class="langbars__value" data-roll="5">0</span>
-            </div>
-            <div class="langbars__row" data-value="1" data-max="6" title="Dart — 1 of 13 repos (8%)">
-              <span class="langbars__label">DART</span>
-              <span class="langbars__track"><span class="langbars__fill"></span></span>
-              <span class="langbars__value" data-roll="1">0</span>
-            </div>
-            <div class="langbars__row" data-value="1" data-max="6" title="x86 Assembly — 1 of 13 repos (8%)">
-              <span class="langbars__label">ASSEMBLY</span>
-              <span class="langbars__track"><span class="langbars__fill"></span></span>
-              <span class="langbars__value" data-roll="1">0</span>
+        <article class="station" id="s-stats" data-size="wide">
+          <div class="station__frame" aria-hidden="true"></div>
+          <div class="station__body">
+            <span class="station__eyebrow">the numbers</span>
+            <div class="station__stats">
+              <div><b data-count="14">14</b><span>public repos</span></div>
+              <div><b data-count="81">81</b><span>days to build them</span></div>
+              <div><b data-count="4">4</b><span>live deployments</span></div>
+              <div><b data-count="12">12</b><span>technologies</span></div>
             </div>
           </div>
-        </figure>
+        </article>
 
-        <figure class="telemetry__chart">
-          <figcaption class="telemetry__caption">SHIPS OVER TIME — CUMULATIVE PUBLIC REPOS, 2026</figcaption>
-          <div class="shipchart" id="shipchart">
-            <div class="shipchart__tip" id="ship-tip" aria-hidden="true"></div>
+        <article class="station station--project" id="s-thew" data-size="std">
+          <div class="station__frame" aria-hidden="true"></div>
+          <div class="station__body">
+            <span class="station__chrome" aria-hidden="true"><i></i><i></i><i></i></span>
+            <h3 class="station__name"><span class="hi">THE W</span></h3>
+            <p class="station__hand">a WebGL hover shader,<br />scoped so it never touches<br />the rest of the page</p>
+            <span class="station__tag">REACT · WEBGL · GSAP</span>
+            <div class="station__links">
+              <a href="https://wnba-players-showcase.vercel.app" target="_blank" rel="noopener" data-cursor="link">live ↗</a>
+              <a href="https://github.com/abdullahasghar966/the-w-wnba-showcase" target="_blank" rel="noopener" data-cursor="link">code ↗</a>
+            </div>
           </div>
-        </figure>
+        </article>
+
+        <article class="station station--project" id="s-dahlia" data-size="std">
+          <div class="station__frame" aria-hidden="true"></div>
+          <div class="station__body">
+            <span class="station__chrome" aria-hidden="true"><i></i><i></i><i></i></span>
+            <h3 class="station__name"><span class="hi">DAHLIA</span></h3>
+            <p class="station__hand">a real cafe in F-6<br />uses this every day</p>
+            <span class="station__tag">NEXT.JS 15 · TAILWIND V4</span>
+            <div class="station__links">
+              <a href="https://dahlia-islamabad.vercel.app" target="_blank" rel="noopener" data-cursor="link">live ↗</a>
+              <a href="https://github.com/abdullahasghar966/dahlia-islamabad" target="_blank" rel="noopener" data-cursor="link">code ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="station station--note" id="s-note1" data-size="note">
+          <div class="station__frame" aria-hidden="true"></div>
+          <div class="station__body">
+            <h2 class="station__big">14 REPOS</h2>
+            <p class="station__hand">in 81 days →</p>
+          </div>
+        </article>
+
+        <article class="station station--project" id="s-no8" data-size="std">
+          <div class="station__frame" aria-hidden="true"></div>
+          <div class="station__body">
+            <span class="station__chrome" aria-hidden="true"><i></i><i></i><i></i></span>
+            <h3 class="station__name"><span class="hi">NO.8</span></h3>
+            <p class="station__hand">draggable physics shrine<br />+ a hidden TECH FOUL</p>
+            <span class="station__tag">REACT 18 · VITE</span>
+            <div class="station__links">
+              <a href="https://08-sophie-cunningham.vercel.app" target="_blank" rel="noopener" data-cursor="link">live ↗</a>
+              <a href="https://github.com/abdullahasghar966/the-bodyguard" target="_blank" rel="noopener" data-cursor="link">code ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="station station--project" id="s-nexus" data-size="std">
+          <div class="station__frame" aria-hidden="true"></div>
+          <div class="station__body">
+            <span class="station__chrome" aria-hidden="true"><i></i><i></i><i></i></span>
+            <h3 class="station__name"><span class="hi">NEXUS</span></h3>
+            <p class="station__hand">three roles, realtime stock,<br />Stripe checkout</p>
+            <span class="station__tag">NEXT.JS · FIREBASE · STRIPE</span>
+            <div class="station__links">
+              <a href="https://github.com/abdullahasghar966/nexus-market" target="_blank" rel="noopener" data-cursor="link">code ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="station station--project" id="s-margin" data-size="std">
+          <div class="station__frame" aria-hidden="true"></div>
+          <div class="station__body">
+            <span class="station__chrome" aria-hidden="true"><i></i><i></i><i></i></span>
+            <h3 class="station__name"><span class="hi">MARGIN</span></h3>
+            <p class="station__hand">speak a note and it<br />lands on the wall</p>
+            <span class="station__tag">REACT · SPEECH API</span>
+            <div class="station__links">
+              <a href="https://stickynotesapp-two.vercel.app" target="_blank" rel="noopener" data-cursor="link">live ↗</a>
+              <a href="https://github.com/abdullahasghar966/sticky-notes-app" target="_blank" rel="noopener" data-cursor="link">code ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="station station--project" id="s-orbit" data-size="std">
+          <div class="station__frame" aria-hidden="true"></div>
+          <div class="station__body">
+            <span class="station__chrome" aria-hidden="true"><i></i><i></i><i></i></span>
+            <h3 class="station__name"><span class="hi">ORBIT</span></h3>
+            <p class="station__hand">tokens stream in live<br />from Groq</p>
+            <span class="station__tag">NEXT.JS 14 · GROQ</span>
+            <div class="station__links">
+              <a href="https://github.com/abdullahasghar966/ai-assistant-chatbot" target="_blank" rel="noopener" data-cursor="link">code ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="station station--project" id="s-void" data-size="std">
+          <div class="station__frame" aria-hidden="true"></div>
+          <div class="station__body">
+            <span class="station__chrome" aria-hidden="true"><i></i><i></i><i></i></span>
+            <h3 class="station__name"><span class="hi">VOID</span></h3>
+            <p class="station__hand">resume analysis in a<br />bioluminescent terminal</p>
+            <span class="station__tag">TYPESCRIPT · AI</span>
+            <div class="station__links">
+              <a href="https://github.com/abdullahasghar966/void-resume-analyzer" target="_blank" rel="noopener" data-cursor="link">code ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="station station--project" id="s-gold" data-size="std">
+          <div class="station__frame" aria-hidden="true"></div>
+          <div class="station__body">
+            <span class="station__chrome" aria-hidden="true"><i></i><i></i><i></i></span>
+            <h3 class="station__name"><span class="hi">XAU/USD</span></h3>
+            <p class="station__hand">a decade of gold,<br />RSI + drawdowns</p>
+            <span class="station__tag">JAVASCRIPT · DATA-VIZ</span>
+            <div class="station__links">
+              <a href="https://github.com/abdullahasghar966/xauusd-gold-terminal" target="_blank" rel="noopener" data-cursor="link">code ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="station" id="s-telemetry" data-size="wide">
+          <div class="station__frame" aria-hidden="true"></div>
+          <div class="station__body">
+            <span class="station__eyebrow">telemetry — from github</span>
+            <h2 class="station__h2">14 REPOS. <span class="hi">81 DAYS.</span></h2>
+            <div class="langbars" id="langbars">
+              <div class="langbars__row" data-value="6" data-max="6"><span class="langbars__label">JAVASCRIPT</span><span class="langbars__track"><span class="langbars__fill"></span></span><span class="langbars__value" data-roll="6">0</span></div>
+              <div class="langbars__row" data-value="5" data-max="6"><span class="langbars__label">TYPESCRIPT</span><span class="langbars__track"><span class="langbars__fill"></span></span><span class="langbars__value" data-roll="5">0</span></div>
+              <div class="langbars__row" data-value="1" data-max="6"><span class="langbars__label">DART</span><span class="langbars__track"><span class="langbars__fill"></span></span><span class="langbars__value" data-roll="1">0</span></div>
+              <div class="langbars__row" data-value="1" data-max="6"><span class="langbars__label">ASSEMBLY</span><span class="langbars__track"><span class="langbars__fill"></span></span><span class="langbars__value" data-roll="1">0</span></div>
+            </div>
+            <span class="station__tag">CUMULATIVE REPOS — MAY → JUL 2026</span>
+            <div class="shipchart" id="shipchart"></div>
+          </div>
+        </article>
+
+        <article class="station" id="s-stack" data-size="wide">
+          <div class="station__frame" aria-hidden="true"></div>
+          <div class="station__body">
+            <span class="station__eyebrow">the garage</span>
+            <h2 class="station__h2">BUILT <span class="hi">WITH</span></h2>
+            <div class="station__stack">
+              <div><span>frontend</span><p>React · Next.js · TypeScript · Tailwind · Vite</p></div>
+              <div><span>motion &amp; 3d</span><p>GSAP · Framer Motion · Three.js · Lenis · WebGL</p></div>
+              <div><span>back &amp; data</span><p>Node · Firebase · MongoDB · Stripe · Python</p></div>
+              <div><span>ai &amp; beyond</span><p>ML/AI · Claude API · Groq · Flutter · x86 ASM</p></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="station" id="s-roles" data-size="wide">
+          <div class="station__frame" aria-hidden="true"></div>
+          <div class="station__body">
+            <span class="station__eyebrow"><i class="pulse"></i> open to work</span>
+            <h2 class="station__h2">HIRE <span class="hi">ME</span></h2>
+            <ul class="station__roles">
+              <li>Full Stack JavaScript Developer</li>
+              <li>UI/UX Designer &amp; Developer</li>
+              <li>Full Stack Software &amp; Web Developer</li>
+            </ul>
+            <div class="station__links">
+              <a href="https://github.com/abdullahasghar966?tab=repositories" target="_blank" rel="noopener" data-cursor="link">all 14 repos ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="station station--contact" id="s-contact" data-size="wide">
+          <div class="station__frame" aria-hidden="true"></div>
+          <div class="station__body">
+            <span class="station__eyebrow">got a project? a role? a wild idea?</span>
+            <h2 class="station__h2">LET’S <span class="hi">BUILD</span></h2>
+            <a class="station__email" href="mailto:abdullah.asghar.cs@gmail.com" data-cursor="link">abdullah.asghar.cs@gmail.com</a>
+            <div class="station__links">
+              <a href="https://github.com/abdullahasghar966" target="_blank" rel="noopener" data-cursor="link">github ↗</a>
+              <a href="https://www.linkedin.com/in/abdullah-asghar6767/" target="_blank" rel="noopener" data-cursor="link">linkedin ↗</a>
+            </div>
+            <p class="station__hand">the corridor loops —<br />but I do answer email.</p>
+          </div>
+        </article>
+
       </div>
     </section>
-
-    <!-- ============ OPEN TO ROLES ============ -->
-    <section class="roles section--paper" id="roles">
-      <div class="section-head">
-        <span class="section-head__label reveal-fade">OPEN TO ROLES</span>
-        <span class="section-head__label reveal-fade">( AVAILABLE — IMMEDIATELY )</span>
-      </div>
-      <h2 class="roles__title reveal-lines">READY FOR<br /><em>THE GRID</em></h2>
-      <p class="roles__sub reveal-fade">Full-time, freelance or collaboration — these are the seats I'm built for. Remote-friendly, based in Islamabad (GMT+5).</p>
-
-      <ul class="roles__list">
-        <li class="roles__row" data-role>
-          <a href="mailto:abdullah.asghar.cs@gmail.com?subject=Full%20Stack%20JavaScript%20Developer%20role" data-cursor="view">
-            <span class="roles__idx">01</span>
-            <span class="roles__body">
-              <span class="roles__name">FULL STACK JAVASCRIPT DEVELOPER</span>
-              <span class="roles__stack">REACT · NEXT.JS · NODE · TYPESCRIPT · FIREBASE · MONGODB</span>
-            </span>
-            <span class="roles__status"><i class="roles__pulse"></i>AVAILABLE</span>
-            <span class="roles__arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li class="roles__row" data-role>
-          <a href="mailto:abdullah.asghar.cs@gmail.com?subject=UI%2FUX%20Designer%20and%20Developer%20role" data-cursor="view">
-            <span class="roles__idx">02</span>
-            <span class="roles__body">
-              <span class="roles__name">UI/UX DESIGNER AND DEVELOPER</span>
-              <span class="roles__stack">DESIGN SYSTEMS · GSAP · FRAMER MOTION · WEBGL · PROTOTYPING</span>
-            </span>
-            <span class="roles__status"><i class="roles__pulse"></i>AVAILABLE</span>
-            <span class="roles__arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li class="roles__row" data-role>
-          <a href="mailto:abdullah.asghar.cs@gmail.com?subject=Full%20Stack%20Software%20and%20Web%20Developer%20role" data-cursor="view">
-            <span class="roles__idx">03</span>
-            <span class="roles__body">
-              <span class="roles__name">FULL STACK SOFTWARE AND WEB DEVELOPER</span>
-              <span class="roles__stack">PYTHON · ML/AI · FLUTTER · STRIPE · REST APIs · SYSTEM DESIGN</span>
-            </span>
-            <span class="roles__status"><i class="roles__pulse"></i>AVAILABLE</span>
-            <span class="roles__arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section class="contact" id="contact">
-      <span class="contact__label reveal-fade">GOT A PROJECT? A ROLE? A WILD IDEA?</span>
-      <h2 class="contact__title">
-        <span class="contact__title-line" data-contact-line><span>LET’S BUILD</span></span>
-        <span class="contact__title-line" data-contact-line><span><em>SOMETHING</em></span></span>
-      </h2>
-      <a href="mailto:abdullah.asghar.cs@gmail.com" class="contact__email" data-cursor="link" data-magnetic>
-        <span class="contact__email-text">ABDULLAH.ASGHAR.CS@GMAIL.COM</span>
-        <span class="contact__email-hover" aria-hidden="true">ABDULLAH.ASGHAR.CS@GMAIL.COM</span>
-      </a>
-      <div class="contact__socials">
-        <a href="https://github.com/abdullahasghar966" target="_blank" rel="noopener" data-cursor="link" data-magnetic>GITHUB</a>
-        <a href="https://www.linkedin.com/in/abdullah-asghar6767/" target="_blank" rel="noopener" data-cursor="link" data-magnetic>LINKEDIN</a>
-        <a href="mailto:abdullah.asghar.cs@gmail.com" data-cursor="link" data-magnetic>EMAIL</a>
-      </div>
-    </section>
-
   </main>
 
-  <!-- ============ FOOTER ============ -->
   <footer class="footer">
-    <div class="footer__grid">
-      <div class="footer__col">
-        <span class="footer__label">PAGES</span>
-        <a href="#home" data-cursor="link">HOME</a>
-        <a href="#work" data-cursor="link">WORK</a>
-        <a href="#about" data-cursor="link">ABOUT</a>
-        <a href="#stack" data-cursor="link">STACK</a>
-        <a href="#telemetry" data-cursor="link">DATA</a>
-        <a href="#roles" data-cursor="link">ROLES</a>
-        <a href="#contact" data-cursor="link">CONTACT</a>
-      </div>
-      <div class="footer__col">
-        <span class="footer__label">FOLLOW</span>
-        <a href="https://github.com/abdullahasghar966" target="_blank" rel="noopener" data-cursor="link">GITHUB</a>
-        <a href="https://www.linkedin.com/in/abdullah-asghar6767/" target="_blank" rel="noopener" data-cursor="link">LINKEDIN</a>
-        <a href="mailto:abdullah.asghar.cs@gmail.com" data-cursor="link">EMAIL</a>
-      </div>
-      <div class="footer__col footer__col--meta">
-        <span class="footer__label">LOCAL TIME</span>
-        <span class="footer__time">ISLAMABAD — <span id="footer-clock">--:--:--</span> PKT</span>
-        <span class="footer__label footer__label--gap">STATUS</span>
-        <span class="footer__status"><i class="footer__pulse"></i> OPEN TO FULL-TIME · FREELANCE · COLLABS</span>
-      </div>
-      <button class="footer__top" id="back-to-top" data-cursor="link" data-magnetic aria-label="Back to top">↑<span>TOP</span></button>
-    </div>
-
-    <div class="footer__big" aria-hidden="true">
-      <span class="footer__big-line" data-footer-line>ALWAYS</span>
-      <span class="footer__big-line footer__big-line--accent" data-footer-line>SHIPPING.</span>
-    </div>
-
     <div class="footer__legal">
-      <span>©2026 ABDULLAH ASGHAR — ALL RIGHTS RESERVED</span>
-      <span>DESIGNED &amp; BUILT BY ABDULLAH — VITE · GSAP · LENIS</span>
+      <span>©2026 ABDULLAH ASGHAR</span>
+      <span>ISLAMABAD — <span id="footer-clock">--:--:--</span> PKT</span>
+      <span>built with vite · gsap · lenis</span>
     </div>
   </footer>
 

@@ -44,8 +44,9 @@ export function initScroll() {
     },
   });
 
-  // smooth anchor navigation (nav + footer + menu links)
-  qsa('a[href^="#"]').forEach((a) => {
+  // Smooth anchor navigation. Links carrying data-goto address a station in
+  // the corridor, not a document position — main.js owns those.
+  qsa('a[href^="#"]:not([data-goto])').forEach((a) => {
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href');
       if (id.length > 1 && qs(id)) {
