@@ -18,16 +18,18 @@ const SHIPS = [
   { day: 64, count: 12, label: 'JUL 12' },
   { day: 66, count: 13, label: 'JUL 14' },
   { day: 80, count: 14, label: 'JUL 28' },
+  { day: 81, count: 16, label: 'JUL 29' },
+  { day: 83, count: 17, label: 'JUL 31' },
 ];
 
-const X_MAX = 80;
-const Y_MAX = 15; // headroom above 14
+const X_MAX = 83;
+const Y_MAX = 19; // headroom above 17
 const X_TICKS = [
   { day: 0, label: 'MAY' },
   { day: 23, label: 'JUN' },
   { day: 53, label: 'JUL' },
 ];
-const Y_TICKS = [0, 7, 14];
+const Y_TICKS = [0, 8, 17];
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
@@ -98,7 +100,7 @@ function buildLineChart(container) {
   const x = (day) => m.left + (day / X_MAX) * iw;
   const y = (count) => m.top + ih - (count / Y_MAX) * ih;
 
-  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, 'aria-label': 'Cumulative public repos over time, 1 in May to 14 in July 2026' });
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, 'aria-label': 'Cumulative public repos over time, 1 in May to 17 in July 2026' });
 
   // gradient for the area fill
   const defs = el('defs');
@@ -154,7 +156,7 @@ function buildLineChart(container) {
     x: ex + 10, y: ey + 4, fill: '#f2f3ec', 'font-size': 11, 'font-weight': 700,
     'font-family': 'JetBrains Mono, monospace', opacity: 0,
   });
-  endLbl.textContent = '14';
+  endLbl.textContent = '17';
   svg.appendChild(endDot);
   svg.appendChild(endLbl);
 
