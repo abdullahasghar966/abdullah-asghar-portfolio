@@ -24,15 +24,16 @@ export function initCursor() {
   });
 
   const setState = (state) => {
-    cursor.classList.toggle('is-view', state === 'view');
+    const big = state === 'view' || state === 'play';
+    cursor.classList.toggle('is-view', big);
     cursor.classList.toggle('is-link', state === 'link');
-    if (state === 'view') label.textContent = 'VIEW';
+    if (big) label.textContent = state === 'play' ? 'PLAY' : 'VIEW';
     gsap.to(ring, {
-      scale: state === 'view' ? 1.9 : state === 'link' ? 1.35 : 1,
+      scale: big ? 1.9 : state === 'link' ? 1.35 : 1,
       duration: 0.35,
       ease: 'power3.out',
     });
-    gsap.to(dot, { opacity: state === 'view' ? 0 : 1, duration: 0.25 });
+    gsap.to(dot, { opacity: big ? 0 : 1, duration: 0.25 });
   };
 
   document.addEventListener('mouseover', (e) => {

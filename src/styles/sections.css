@@ -1560,3 +1560,187 @@
     grid-row: 1;
   }
 }
+
+/* ================= PLAY BADGE ON COVER ================= */
+.project__cover--play { cursor: pointer; }
+
+.project__play {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.94);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.3rem;
+  background: var(--volt);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  border-radius: 99px;
+  box-shadow: 0 10px 40px rgba(11, 11, 12, 0.55);
+  transition: transform 0.45s var(--ease-expo), box-shadow 0.45s var(--ease-out);
+}
+
+.project__play i {
+  width: 0;
+  height: 0;
+  border-left: 10px solid var(--ink);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+.project__cover--play:hover .project__play {
+  transform: translate(-50%, -50%) scale(1.06);
+  box-shadow: 0 16px 54px rgba(212, 255, 63, 0.35);
+}
+
+/* ================= LAUNCH TRANSITION ================= */
+.launch {
+  --launch-dim: 0;
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  pointer-events: none;
+  perspective: 1400px;
+  background: rgba(11, 11, 12, var(--launch-dim));
+}
+
+.launch__card {
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.75);
+}
+
+.launch__card .project__play { display: none; }
+
+/* ================= PLAYABLE GAME MODAL ================= */
+.gamemodal {
+  position: fixed;
+  inset: 0;
+  z-index: 1600;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.5rem, 2.5vw, 2rem);
+}
+
+.gamemodal.is-open { display: flex; }
+
+.gamemodal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 6, 7, 0.9);
+  backdrop-filter: blur(6px);
+}
+
+.gamemodal__shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(1400px, 100%);
+  height: min(88svh, 900px);
+  background: var(--ink-2);
+  border: 1px solid var(--line-dark);
+  overflow: hidden;
+}
+
+.gamemodal__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--line-dark);
+  background: var(--ink);
+}
+
+.gamemodal__title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.gamemodal__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--volt);
+  animation: pulse 2s ease-out infinite;
+}
+
+.gamemodal__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.gamemodal__actions a {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  opacity: 0.75;
+  transition: opacity 0.3s, color 0.3s;
+}
+
+.gamemodal__actions a:hover { opacity: 1; color: var(--volt); }
+
+.gamemodal__close {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--line-dark);
+  border-radius: 50%;
+  font-size: 0.75rem;
+  line-height: 1;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.gamemodal__close:hover {
+  background: var(--volt);
+  border-color: var(--volt);
+  color: var(--ink);
+}
+
+.gamemodal__frame {
+  position: relative;
+  flex: 1;
+  background: #0a0f06;
+}
+
+.gamemodal__frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out);
+}
+
+.gamemodal__frame.is-ready iframe { opacity: 1; }
+.gamemodal__frame.is-ready .gamemodal__loading { opacity: 0; }
+
+.gamemodal__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  color: var(--volt);
+  transition: opacity 0.4s;
+}
+
+@media (max-width: 700px) {
+  .gamemodal__shell { height: 92svh; }
+  .gamemodal__actions a { display: none; }
+  .project__play { font-size: 0.6rem; padding: 0.6rem 1rem; }
+}

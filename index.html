@@ -102,6 +102,24 @@
     </div>
   </div>
 
+  <!-- ============ PLAYABLE GAME ============ -->
+  <div class="gamemodal" id="game-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Lawn Defense 3D, playable">
+    <div class="gamemodal__backdrop" data-close-game></div>
+    <div class="gamemodal__shell">
+      <div class="gamemodal__bar">
+        <span class="gamemodal__title"><i class="gamemodal__dot"></i>LAWN DEFENSE 3D — RUNNING LIVE</span>
+        <div class="gamemodal__actions">
+          <a href="./game/index.html" target="_blank" rel="noopener" data-cursor="link">FULLSCREEN ↗</a>
+          <a href="https://github.com/abdullahasghar966/lawn-defense-3d" target="_blank" rel="noopener" data-cursor="link">CODE ↗</a>
+          <button class="gamemodal__close" data-close-game data-cursor="link" aria-label="Close game">✕</button>
+        </div>
+      </div>
+      <div class="gamemodal__frame" id="game-frame">
+        <span class="gamemodal__loading">LOADING THE LAWN…</span>
+      </div>
+    </div>
+  </div>
+
   <main id="main">
 
     <!-- ============ HERO ============ -->
@@ -214,16 +232,19 @@
 
           <!-- 01 LAWN DEFENSE 3D -->
           <article class="hof__panel project" data-accent="#7ed957" data-ink="#0a1206">
-            <a class="project__cover project__cover--shot" href="https://github.com/abdullahasghar966/lawn-defense-3d" target="_blank" rel="noopener" data-cursor="view" aria-label="Lawn Defense 3D on GitHub">
+            <!-- Without JS this simply opens the game; with JS it plays inline. -->
+            <a class="project__cover project__cover--shot project__cover--play" href="./game/index.html" data-play data-cursor="play" aria-label="Play Lawn Defense 3D in the browser">
               <img class="project__shot" src="./covers/lawn-defense.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="Lawn Defense 3D — wave four, zombies advancing across the 3D lawn" />
               <span class="project__cover-index">01</span>
               <span class="project__cover-meta">THREE.JS LANE DEFENSE — 11 LEVELS</span>
+              <span class="project__play" aria-hidden="true"><i></i>PLAY IT HERE</span>
             </a>
             <div class="project__info">
               <h3 class="project__name">LAWN DEFENSE 3D</h3>
-              <p class="project__desc">A full 3D lane-defense game in Three.js — 16 plants, 10 zombies, 11 levels, hand-built models and particles. No build step, no engine.</p>
+              <p class="project__desc">A full 3D lane-defense game in Three.js — 16 plants, 10 zombies, 11 levels, hand-built models and particles. No build step, no engine. Playable right here.</p>
               <div class="project__tags"><span>THREE.JS</span><span>WEBGL</span><span>GAME</span></div>
               <div class="project__links">
+                <a href="./game/index.html" data-play data-cursor="link" data-magnetic>▶ PLAY NOW</a>
                 <a href="https://github.com/abdullahasghar966/lawn-defense-3d" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
               </div>
             </div>

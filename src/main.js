@@ -10,6 +10,8 @@ import { initMenu } from './js/menu.js';
 import { initMarquees } from './js/marquee.js';
 import { initHorizontal } from './js/horizontal.js';
 import { initClock } from './js/clock.js';
+import { initGameEmbed } from './js/gameEmbed.js';
+import { initLaunch } from './js/launch.js';
 import { initTelemetry } from './js/telemetry.js';
 import { setInitialStates, heroIntro, initReveals } from './js/reveals.js';
 
@@ -31,6 +33,8 @@ async function init() {
   initMagnetic();
   initMenu();
   initClock();
+  initGameEmbed();
+  initLaunch();
   initMarquees();
   initReveals();
   initHorizontal();
