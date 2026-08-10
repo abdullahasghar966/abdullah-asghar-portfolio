@@ -1724,19 +1724,29 @@
 }
 
 .gamemodal__frame.is-ready iframe { opacity: 1; }
-.gamemodal__frame.is-ready .gamemodal__loading { opacity: 0; }
 
+/* Fading this to opacity:0 is not enough — a transparent element still
+   hit-tests, and this one covers the whole frame, so it would swallow every
+   click meant for the game. It must never take pointer input, and it leaves
+   the layer entirely once the game is up. */
 .gamemodal__loading {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.22em;
   color: var(--volt);
   transition: opacity 0.4s;
+}
+
+.gamemodal__frame.is-ready .gamemodal__loading {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0s 0.4s;
 }
 
 @media (max-width: 700px) {
