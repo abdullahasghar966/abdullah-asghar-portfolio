@@ -1,0 +1,255 @@
+/* ================================================================
+   sketch.css — hand-drawn design system
+   Sketchbook, not crayon: technical pencil + ink on paper,
+   volt kept as a highlighter swipe.
+   ================================================================ */
+
+:root {
+  /* paper & ink */
+  --sk-paper: #f0ece0;
+  --sk-paper-2: #e6e0cf;
+  --sk-ink: #191916;
+  --sk-ink-soft: rgba(25, 25, 22, 0.62);
+  --sk-ink-faint: rgba(25, 25, 22, 0.28);
+  --sk-blue: #2b4a8b; /* ballpoint annotations */
+  --sk-hi: #d4ff3f;   /* highlighter volt */
+
+  --font-hand: 'Architects Daughter', 'Comic Sans MS', cursive;
+  --font-script: 'Caveat', cursive;
+}
+
+/* ---------- paper surface ---------- */
+.sketch-paper {
+  position: relative;
+  background-color: var(--sk-paper);
+  color: var(--sk-ink);
+  background-image:
+    /* graph ruling */
+    linear-gradient(rgba(43, 74, 139, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43, 74, 139, 0.07) 1px, transparent 1px),
+    /* coarser grid */
+    linear-gradient(rgba(43, 74, 139, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43, 74, 139, 0.05) 1px, transparent 1px);
+  background-size: 26px 26px, 26px 26px, 130px 130px, 130px 130px;
+}
+
+/* paper fibre */
+.sketch-paper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='0.35'/%3E%3C/svg%3E");
+}
+
+/* the SVG filter defs live in one hidden svg */
+.sketch-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* ---------- the walk ---------- */
+.walk {
+  position: relative;
+  overflow: clip;
+}
+
+.walk__pin {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+}
+
+/* the 3D corridor */
+.walk__stage {
+  position: absolute;
+  inset: 0;
+  perspective: 900px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+}
+
+.walk__layer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(620px, 78vw);
+  margin: 0;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* nearest frames get the live "boil" jitter */
+.walk__layer.is-near .walk__frame {
+  animation: boil 0.36s steps(1) infinite;
+}
+
+@keyframes boil {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  33%  { transform: translate(0.9px, -0.7px) rotate(0.14deg); }
+  66%  { transform: translate(-0.7px, 0.8px) rotate(-0.12deg); }
+}
+
+.walk__frame {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Edge vignette only. The per-layer opacity ramp in walk.js does the distance
+   haze — anything stronger here paints over the frames sweeping past you. */
+.walk__fog {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 96% 92% at 50% 50%,
+    rgba(240, 236, 224, 0) 68%,
+    rgba(240, 236, 224, 0.42) 90%,
+    rgba(240, 236, 224, 0.78) 100%
+  );
+}
+
+/* HUD */
+.walk__hud {
+  position: absolute;
+  z-index: 5;
+  left: var(--pad-x);
+  bottom: clamp(1.5rem, 5vh, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  pointer-events: none;
+}
+
+.walk__hud-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  color: var(--sk-ink-soft);
+}
+
+.walk__hud-dist {
+  font-family: var(--font-hand);
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  line-height: 1;
+  color: var(--sk-ink);
+}
+
+.walk__hint {
+  position: absolute;
+  z-index: 5;
+  right: var(--pad-x);
+  bottom: clamp(1.5rem, 5vh, 3rem);
+  font-family: var(--font-hand);
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
+  color: var(--sk-ink-soft);
+  text-align: right;
+  pointer-events: none;
+}
+
+.walk__hint i {
+  font-style: normal;
+  display: block;
+  font-size: 1.6em;
+  line-height: 1;
+}
+
+/* title card sits above the corridor at the start */
+.walk__intro {
+  position: absolute;
+  z-index: 4;
+  inset: auto 0 auto 0;
+  top: clamp(4.5rem, 12vh, 8rem);
+  text-align: center;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.walk__intro-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--sk-ink-soft);
+}
+
+.walk__intro-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 8vw, 6rem);
+  line-height: 0.94;
+  letter-spacing: 0.01em;
+  color: var(--sk-ink);
+  filter: url(#sk-rough);
+}
+
+/* highlighter swipe behind a word */
+.hi {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.12em;
+}
+
+.hi::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  top: 22%;
+  bottom: 8%;
+  background: var(--sk-hi);
+  transform: skewX(-11deg) rotate(-0.7deg);
+  filter: url(#sk-rough);
+  opacity: 0.9;
+}
+
+/* reduced motion / no-3D fallback: stack the frames as a sketch wall */
+.walk--static .walk__pin {
+  height: auto;
+  overflow: visible;
+}
+
+.walk--static .walk__stage {
+  position: relative;
+  inset: auto;
+  perspective: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: clamp(3rem, 8vh, 6rem) var(--pad-x);
+}
+
+.walk--static .walk__layer {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.walk--static .walk__fog,
+.walk--static .walk__hud,
+.walk--static .walk__hint {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .walk__layer {
+    width: min(340px, 82vw);
+  }
+
+  .walk__intro-title {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+}
