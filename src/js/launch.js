@@ -70,9 +70,11 @@ function fly(cover, href) {
     tl.kill();
     stage.remove();
   };
-  const guard = setTimeout(teardown, 1500);
+  const guard = setTimeout(teardown, 1600);
   const onVisible = () => {
-    if (document.visibilityState === 'visible') teardown();
+    // Only once the link has actually opened — otherwise an incidental
+    // visibility flip mid-flight would cut the animation off at the knees.
+    if (document.visibilityState === 'visible' && opened) teardown();
   };
   document.addEventListener('visibilitychange', onVisible);
 
@@ -83,23 +85,30 @@ function fly(cover, href) {
     },
   });
 
-  tl.to(stage, { '--launch-dim': 0.72, duration: 0.34, ease: 'power2.out' }, 0)
+  // hinge on the bottom edge so the card peels off the page rather than
+  // simply growing in place
+  gsap.set(clone, { transformOrigin: '50% 100%' });
+
+  tl.to(stage, { '--launch-dim': 0.75, duration: 0.3, ease: 'power2.out' }, 0)
+    // 1. peel — the cover unsticks and tips up toward you
+    .to(clone, { rotateX: 15, scale: 1.05, z: 70, duration: 0.19, ease: 'power2.out' }, 0)
+    // 2. launch — it swings level and drives at the camera
     .to(
       clone,
       {
         x: dx,
         y: dy,
-        scale: 1.55,
-        rotateX: -9,
-        rotateY: 4,
-        z: 340,
-        duration: 0.52,
+        rotateX: -7,
+        rotateY: 5,
+        scale: 1.62,
+        z: 430,
+        duration: 0.46,
         ease: 'power3.in',
       },
-      0
+      0.17
     )
     .add(openOnce, OPEN_AT)
-    // it settles back — you are still on the portfolio when the tab opens
-    .to(clone, { autoAlpha: 0, scale: 1.75, duration: 0.3, ease: 'power2.out' }, OPEN_AT + 0.06)
-    .to(stage, { '--launch-dim': 0, duration: 0.4, ease: 'power2.out' }, OPEN_AT + 0.1);
+    // it dissolves past the lens — you are still on the portfolio behind it
+    .to(clone, { autoAlpha: 0, scale: 1.9, duration: 0.3, ease: 'power2.out' }, OPEN_AT + 0.05)
+    .to(stage, { '--launch-dim': 0, duration: 0.42, ease: 'power2.out' }, OPEN_AT + 0.12);
 }
