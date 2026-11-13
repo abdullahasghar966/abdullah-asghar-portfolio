@@ -4,7 +4,7 @@ import { REDUCED, FINE_POINTER, qs, qsa } from './utils.js';
 
 /**
  * TELEMETRY — GitHub data, hand-rolled SVG.
- * Cumulative public repos by creation date (May 9 → Jul 28, 2026).
+ * Cumulative public repos by creation date (May 9 → Oct 8, 2026).
  */
 const SHIPS = [
   { day: 0, count: 1, label: 'MAY 09' },
@@ -20,16 +20,22 @@ const SHIPS = [
   { day: 80, count: 14, label: 'JUL 28' },
   { day: 81, count: 16, label: 'JUL 29' },
   { day: 83, count: 17, label: 'JUL 31' },
+  { day: 140, count: 18, label: 'SEP 26' },
+  { day: 146, count: 20, label: 'OCT 02' },
+  { day: 152, count: 21, label: 'OCT 08' },
 ];
 
-const X_MAX = 83;
-const Y_MAX = 19; // headroom above 17
+const X_MAX = 152;
+const Y_MAX = 23; // headroom above 21
 const X_TICKS = [
   { day: 0, label: 'MAY' },
   { day: 23, label: 'JUN' },
   { day: 53, label: 'JUL' },
+  { day: 84, label: 'AUG' },
+  { day: 115, label: 'SEP' },
+  { day: 145, label: 'OCT' },
 ];
-const Y_TICKS = [0, 8, 17];
+const Y_TICKS = [0, 10, 21];
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
@@ -100,7 +106,7 @@ function buildLineChart(container) {
   const x = (day) => m.left + (day / X_MAX) * iw;
   const y = (count) => m.top + ih - (count / Y_MAX) * ih;
 
-  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, 'aria-label': 'Cumulative public repos over time, 1 in May to 17 in July 2026' });
+  const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, 'aria-label': 'Cumulative public repos over time, 1 in May to 21 in October 2026' });
 
   // gradient for the area fill
   const defs = el('defs');
@@ -156,7 +162,7 @@ function buildLineChart(container) {
     x: ex + 10, y: ey + 4, fill: '#f2f3ec', 'font-size': 11, 'font-weight': 700,
     'font-family': 'JetBrains Mono, monospace', opacity: 0,
   });
-  endLbl.textContent = '17';
+  endLbl.textContent = '21';
   svg.appendChild(endDot);
   svg.appendChild(endLbl);
 
