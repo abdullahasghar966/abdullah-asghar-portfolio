@@ -1,5 +1,7 @@
 # Abdullah Asghar — Portfolio 2026
 
+**🔗 Live site:** [abdullah-asghar-portfolio-ten.vercel.app](https://abdullah-asghar-portfolio-ten.vercel.app)
+
 A Lando-Norris-inspired, animation-first portfolio. Giant condensed typography, volt-on-black palette, smooth scrolling and scroll-driven storytelling — built to prove the craft it describes.
 
 **Stack:** Vite · vanilla JS · GSAP 3.15 (ScrollTrigger + SplitText) · Lenis
