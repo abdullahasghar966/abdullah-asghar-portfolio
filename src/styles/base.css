@@ -8,13 +8,13 @@
    Everything is authored in px of a design frame (1920 desktop, 768 tablet,
    375 phone) and multiplied by --u, so the whole layout scales as one piece. */
 :root {
-  --frame: 1600;  /* desktop design frame: smaller frame = everything larger */
+  --frame: 1760;  /* desktop design frame: smaller frame = everything larger (loopsii uses 1920) */
   --vw-min: 1024px;
   --vw-max: 2560px;
   --vw: clamp(var(--vw-min), 100vw, var(--vw-max));
   --u: calc(var(--vw) / var(--frame));
   --screen-h: 100lvh;
-  --uh: min(var(--u), calc(var(--screen-h) / 940)); /* headings also respect short screens */
+  --uh: min(var(--u), calc(var(--screen-h) / 1010)); /* headings also respect short screens */
   --cont: calc(40 * var(--u));
   --section: calc(100 * var(--u));
 
@@ -63,7 +63,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font);
-  font-size: calc(16 * var(--u));
+  font-size: max(14px, calc(16 * var(--u)));
   font-variation-settings: 'wght' 400;
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
@@ -91,7 +91,7 @@ html { overflow-x: clip; }
 .h2 { font-size: calc(74 * var(--uh)); line-height: 1; letter-spacing: -0.02em; font-variation-settings: 'wght' 500; font-weight: 500; }
 .h3 { font-size: calc(52 * var(--uh)); line-height: 1.02; letter-spacing: -0.02em; font-variation-settings: 'wght' 500; font-weight: 500; }
 .lead { font-size: calc(22 * var(--u)); line-height: 1.4; font-variation-settings: 'wght' 450; }
-.copy { font-size: calc(16 * var(--u)); line-height: 1.45; }
+.copy { font-size: max(14px, calc(16 * var(--u))); line-height: 1.45; }
 .label { font-size: clamp(11px, calc(14 * var(--u)), 15.4px); line-height: 1; text-transform: uppercase; letter-spacing: 0.02em; font-variation-settings: 'wght' 450; }
 .note { font-family: var(--font-hand); font-size: calc(33 * var(--u)); line-height: 1.05; font-weight: 700; letter-spacing: -0.01em; }
 .pill { display: inline-flex; align-items: center; height: calc(30 * var(--u)); padding: 0 calc(14 * var(--u)); border: 1px solid var(--ink); border-radius: 999px; font-size: calc(13 * var(--u)); text-transform: uppercase; letter-spacing: 0.04em; font-variation-settings: 'wght' 550; }
@@ -187,7 +187,7 @@ html { overflow-x: clip; }
 .nav_logo-mark { display: grid; place-items: center; width: calc(34 * var(--u)); height: calc(34 * var(--u)); border-radius: 50%; background: var(--nav-ink); color: var(--volt); font-size: calc(13 * var(--u)); font-variation-settings: 'wght' 800; letter-spacing: -0.04em; }
 @media (width <= 1023px) { .nav_logo { font-size: calc(19 * var(--u)); } .nav_logo-mark { width: calc(32 * var(--u)); height: calc(32 * var(--u)); } }
 @media (width <= 479px) { .nav_logo-text { display: none; } .nav_logo-mark { width: 30px; height: 30px; font-size: 12px; } }
-.nav_links { display: flex; gap: calc(44 * var(--u)); font-size: calc(17 * var(--u)); }
+.nav_links { display: flex; gap: calc(44 * var(--u)); font-size: max(14px, calc(17 * var(--u))); }
 .nav_links a { padding: 6px 0; }
 @media (width <= 1023px) { .nav_links { display: none; } }
 .nav_panel { height: 0; overflow: hidden; }
@@ -239,7 +239,7 @@ html { overflow-x: clip; }
 }
 .btn .char.is-space { width: 0.28em; }
 .btn:not(.is-built) .btn_label { color: var(--btn-ink); }
-.nav_bar .btn { font-size: calc(17 * var(--u)); }
+.nav_bar .btn { font-size: max(14px, calc(17 * var(--u))); }
 @media (width <= 479px) { .nav_bar .btn { font-size: 13px; } }
 .nav_bar .btn_layer--solid { background: var(--nav-ink); }
 .nav_bar .btn { --btn-ink: var(--nav-label); }
