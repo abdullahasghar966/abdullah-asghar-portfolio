@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abdullah Asghar — Developer Portfolio</title>
-  <meta name="description" content="Abdullah Asghar — CS student & self-taught developer. React · Python · ML/AI · TypeScript. Shipping real products from Islamabad, Pakistan." />
-  <meta property="og:title" content="Abdullah Asghar — Developer Portfolio" />
-  <meta property="og:description" content="CS student & self-taught developer. React · Python · ML/AI · TypeScript. Always shipping." />
+  <title>Abdullah Asghar — Designer &amp; Developer</title>
+  <meta name="description" content="Abdullah Asghar — self-taught full-stack developer and UI/UX designer in Islamabad. React · Next.js · TypeScript · GSAP · WebGL · Python · ML/AI. I understand every line I ship." />
+  <meta property="og:title" content="Abdullah Asghar — Designer &amp; Developer" />
+  <meta property="og:description" content="Self-taught full-stack developer and UI/UX designer. Motion-first web, 3D, storefronts and AI tools. Always shipping." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://abdullah-asghar-portfolio-ten.vercel.app/" />
   <meta property="og:image" content="https://abdullah-asghar-portfolio-ten.vercel.app/og.jpg" />
@@ -15,703 +15,482 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://abdullah-asghar-portfolio-ten.vercel.app/og.jpg" />
   <link rel="canonical" href="https://abdullah-asghar-portfolio-ten.vercel.app/" />
-  <meta name="theme-color" content="#0b0b0c" />
+  <meta name="theme-color" content="#f2f3ec" />
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      var nav = performance.getEntriesByType('navigation')[0];
+      var repeat = (nav && /reload|back_forward/.test(nav.type)) || document.referrer.indexOf(location.origin) === 0;
+      var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (repeat || reduce) d.classList.add('is-repeat'); else d.classList.add('is-loading');
+    })();
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Mona+Sans:wght@200..900&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="./src/styles/main.css" />
 </head>
-<body data-theme="dark">
+<body>
+  <a class="skip" href="#main">Skip to content</a>
 
   <!-- ============ PRELOADER ============ -->
-  <div class="preloader" id="preloader" aria-hidden="true">
-    <div class="preloader__curtain preloader__curtain--top"></div>
-    <div class="preloader__curtain preloader__curtain--bottom"></div>
-    <div class="preloader__center">
-      <div class="preloader__name">
-        <span class="preloader__word" data-preloader-word>ABDULLAH</span>
-        <span class="preloader__word preloader__word--outline" data-preloader-word>ASGHAR</span>
-      </div>
-      <div class="preloader__meta">
-        <span class="preloader__tag">PORTFOLIO — 2026</span>
-        <span class="preloader__counter"><span id="preloader-count">000</span><sup>%</sup></span>
-      </div>
+  <div class="loader" data-loader aria-hidden="true">
+    <div class="loader_sheet"></div>
+    <div class="loader_box">
+      <span class="loader_line loader_line-x"></span>
+      <span class="loader_line loader_line-x"></span>
+      <span class="loader_line loader_line-y"></span>
+      <span class="loader_line loader_line-y"></span>
+      <span class="loader_frame"></span>
+      <span class="loader_dot"></span><span class="loader_dot"></span><span class="loader_dot"></span><span class="loader_dot"></span>
     </div>
-    <div class="preloader__bar"><span id="preloader-bar"></span></div>
+    <p class="loader_counter note"><span class="loader_counter-value">000</span> %</p>
   </div>
 
-  <!-- ============ CUSTOM CURSOR ============ -->
-  <div class="cursor" id="cursor" aria-hidden="true">
-    <div class="cursor__dot" id="cursor-dot"></div>
-    <div class="cursor__ring" id="cursor-ring"><span class="cursor__label" id="cursor-label"></span></div>
+  <!-- the monogram travels: loader → hero cell → intro centre -->
+  <div class="mark" data-mark aria-hidden="true">
+    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="currentColor"/><text x="50" y="50" text-anchor="middle" dominant-baseline="central">AA</text></svg>
   </div>
-
-  <!-- ============ SCROLL PROGRESS ============ -->
-  <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
 
   <!-- ============ NAV ============ -->
-  <header class="nav" id="nav">
-    <a href="#home" class="nav__logo" data-cursor="link" aria-label="Home">
-      <span class="nav__logo-main">ABDULLAH ASGHAR</span>
-      <span class="nav__logo-sub">FOLIO / 26</span>
-    </a>
-    <nav class="nav__links" aria-label="Primary">
-      <a href="#work" class="nav__link" data-cursor="link"><sup>01</sup>WORK</a>
-      <a href="#about" class="nav__link" data-cursor="link"><sup>02</sup>ABOUT</a>
-      <a href="#stack" class="nav__link" data-cursor="link"><sup>03</sup>STACK</a>
-      <a href="#telemetry" class="nav__link" data-cursor="link"><sup>04</sup>DATA</a>
-      <a href="#roles" class="nav__link" data-cursor="link"><sup>05</sup>ROLES</a>
-      <a href="#contact" class="nav__link" data-cursor="link"><sup>06</sup>CONTACT</a>
-    </nav>
-    <div class="nav__right">
-      <span class="nav__time" aria-label="Local time in Islamabad">ISB <span id="nav-clock">--:--</span></span>
-      <button class="nav__burger" id="menu-toggle" data-cursor="link" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
-        <span class="nav__burger-line"></span>
-        <span class="nav__burger-line"></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- ============ FULLSCREEN MENU ============ -->
-  <div class="menu" id="menu" aria-hidden="true">
-    <div class="menu__inner">
-      <nav class="menu__nav" aria-label="Menu">
-        <a href="#home" class="menu__link" data-cursor="link"><span class="menu__num">01</span><span class="menu__word"><span class="menu__word-inner">HOME</span></span></a>
-        <a href="#work" class="menu__link" data-cursor="link"><span class="menu__num">02</span><span class="menu__word"><span class="menu__word-inner">WORK</span></span></a>
-        <a href="#about" class="menu__link" data-cursor="link"><span class="menu__num">03</span><span class="menu__word"><span class="menu__word-inner">ABOUT</span></span></a>
-        <a href="#stack" class="menu__link" data-cursor="link"><span class="menu__num">04</span><span class="menu__word"><span class="menu__word-inner">STACK</span></span></a>
-        <a href="#telemetry" class="menu__link" data-cursor="link"><span class="menu__num">05</span><span class="menu__word"><span class="menu__word-inner">DATA</span></span></a>
-        <a href="#roles" class="menu__link" data-cursor="link"><span class="menu__num">06</span><span class="menu__word"><span class="menu__word-inner">ROLES</span></span></a>
-        <a href="#contact" class="menu__link" data-cursor="link"><span class="menu__num">07</span><span class="menu__word"><span class="menu__word-inner">CONTACT</span></span></a>
-      </nav>
-      <div class="menu__aside">
-        <div class="menu__group">
-          <span class="menu__label">SOCIALS</span>
-          <a href="https://github.com/abdullahasghar966" target="_blank" rel="noopener" class="menu__social" data-cursor="link">GITHUB ↗</a>
-          <a href="https://www.linkedin.com/in/abdullah-asghar6767/" target="_blank" rel="noopener" class="menu__social" data-cursor="link">LINKEDIN ↗</a>
+  <div class="nav" data-nav>
+    <div class="nav_slide">
+      <div class="nav_body">
+        <div class="nav_bar">
+          <a class="nav_logo" href="#top" aria-label="Abdullah Asghar — back to top">
+            <span class="nav_logo-mark">AA</span><span class="nav_logo-text">Abdullah Asghar</span>
+          </a>
+          <nav class="nav_links" aria-label="Primary">
+            <a href="#work" data-nav-link="work" data-weight>Work</a>
+            <a href="#toolkit" data-nav-link="toolkit" data-weight>Toolkit</a>
+            <a href="#services" data-nav-link="services" data-weight>Services</a>
+            <a href="#faq" data-nav-link="faq" data-weight>FAQ</a>
+          </nav>
+          <a class="btn" data-btn href="mailto:abdullah.asghar.cs@gmail.com?subject=Let%E2%80%99s%20build%20something">Hire me</a>
         </div>
-        <div class="menu__group">
-          <span class="menu__label">GET IN TOUCH</span>
-          <a href="mailto:abdullah.asghar.cs@gmail.com" class="menu__social" data-cursor="link">ABDULLAH.ASGHAR.CS@GMAIL.COM</a>
-        </div>
-        <div class="menu__group">
-          <span class="menu__label">LOCATION</span>
-          <span class="menu__social">ISLAMABAD, PAKISTAN — GMT+5</span>
+        <div class="nav_panel" aria-hidden="true">
+          <div class="nav_outro">
+            <span class="nav_line nav_line-x" style="top:0"></span><span class="nav_line nav_line-x" style="bottom:0"></span>
+            <span class="nav_line nav_line-y" style="left:0"></span><span class="nav_line nav_line-y" style="right:0"></span>
+            <span class="nav_dot" style="left:0;top:0"></span><span class="nav_dot" style="right:0;top:0"></span>
+            <span class="nav_dot" style="left:0;bottom:0"></span><span class="nav_dot" style="right:0;bottom:0"></span>
+            <h2 class="h2 nav_outro-title" data-overlay-reveal>Let’s build something</h2>
+            <p class="note" data-overlay-reveal>One inbox, every idea, a fast reply</p>
+            <div data-overlay-reveal>
+              <a class="btn" data-btn href="mailto:abdullah.asghar.cs@gmail.com?subject=Let%E2%80%99s%20build%20something">abdullah.asghar.cs@gmail.com</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="menu__footer">
-      <span>©2026 ABDULLAH ASGHAR</span>
-      <span>ALWAYS SHIPPING.</span>
+    <div class="nav_legal">
+      <div class="nav_legal-col">
+        <div class="nav_legal-socials">
+          <a href="https://github.com/abdullahasghar966" target="_blank" rel="noopener" data-weight>GitHub</a>
+          <a href="https://www.linkedin.com/in/abdullah-asghar6767/" target="_blank" rel="noopener" data-weight>LinkedIn</a>
+          <a href="mailto:abdullah.asghar.cs@gmail.com" data-weight>Email</a>
+        </div>
+        <p>© 2026 Abdullah Asghar</p>
+      </div>
+      <div class="nav_legal-col nav_legal-col--end">
+        <p>Islamabad <span data-clock="short">--:--</span> PKT</p>
+        <p>Designed &amp; built by Abdullah</p>
+      </div>
     </div>
   </div>
 
-  <!-- ============ PLAYABLE GAME ============ -->
+  <!-- ============ GAME MODAL (kept from v1) ============ -->
   <div class="gamemodal" id="game-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Lawn Defense 3D, playable">
     <div class="gamemodal__backdrop" data-close-game></div>
     <div class="gamemodal__shell">
       <div class="gamemodal__bar">
-        <span class="gamemodal__title"><i class="gamemodal__dot"></i>LAWN DEFENSE 3D — RUNNING LIVE</span>
+        <span class="gamemodal__title"><i class="gamemodal__dot"></i>Lawn Defense 3D — running live</span>
         <div class="gamemodal__actions">
-          <a href="./game/index.html" target="_blank" rel="noopener" data-cursor="link">FULLSCREEN ↗</a>
-          <a href="https://github.com/abdullahasghar966/lawn-defense-3d" target="_blank" rel="noopener" data-cursor="link">CODE ↗</a>
-          <button class="gamemodal__close" data-close-game data-cursor="link" aria-label="Close game">✕</button>
+          <a href="./game/index.html" target="_blank" rel="noopener">Fullscreen ↗</a>
+          <a href="https://github.com/abdullahasghar966/lawn-defense-3d" target="_blank" rel="noopener">Code ↗</a>
+          <button class="gamemodal__close" data-close-game aria-label="Close game">✕</button>
         </div>
       </div>
       <div class="gamemodal__frame" id="game-frame">
-        <span class="gamemodal__loading">LOADING THE LAWN…</span>
+        <span class="gamemodal__loading">Loading the lawn…</span>
       </div>
     </div>
   </div>
 
-  <main id="main">
+  <canvas class="gl-back" data-gl-back aria-hidden="true"></canvas>
+
+  <main id="main" class="main">
 
     <!-- ============ HERO ============ -->
-    <section class="hero" id="home">
-      <div class="hero__bg" aria-hidden="true">
-        <div class="hero__grid"></div>
-        <div class="hero__orb" id="hero-orb"></div>
+    <header class="hero" id="top">
+      <div class="container hero_top">
+        <h1 class="h1 hero_title">
+          <span class="hero_line">I design &amp; build</span>
+          <span class="hero_line hero_words" aria-live="off">
+            <span class="hero_word">web experiences</span>
+            <span class="hero_word">3D games</span>
+            <span class="hero_word">storefronts</span>
+            <span class="hero_word">AI tools</span>
+            <span class="hero_word">marketplaces</span>
+            <span class="hero_word">interfaces</span>
+          </span>
+        </h1>
+        <p class="lead hero_copy">Self-taught full-stack developer and UI/UX designer in Islamabad. React, Next.js, TypeScript, WebGL and a little ML. I understand every line I ship.</p>
+      </div>
+      <div class="hero_bottom" data-grid-band>
+        <div class="hero_frame">
+          <span class="hline hero_hline hero_hline--top"></span>
+          <span class="hline hero_hline hero_hline--bottom"></span>
+          <span class="vline hero_vline hero_vline--left"></span>
+          <span class="vline hero_vline hero_vline--right"></span>
+          <span class="dot" style="left:0;top:0"></span><span class="dot" style="right:0;top:0"></span>
+          <span class="dot" style="left:0;bottom:0"></span><span class="dot" style="right:0;bottom:0"></span>
+          <span class="label hero_label hero_label--tl">Frontend</span>
+          <span class="label hero_label hero_label--tr">Motion &amp; 3D</span>
+          <span class="label hero_label hero_label--bl">Back &amp; data</span>
+          <span class="label hero_label hero_label--br">AI &amp; beyond</span>
+          <div class="tiles" data-tiles aria-hidden="true"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ INTRO ============ -->
+    <section class="intro" aria-labelledby="intro-title">
+      <div class="intro_sticky">
+        <div class="container intro_head">
+          <p class="note intro_label">( est. 2023 )</p>
+          <h2 class="intro_title" id="intro-title">Redefining what self-taught means. Shipping real products, chasing craft in every detail, and understanding every line along the way.</h2>
+        </div>
+        <div class="intro_stage">
+          <div class="intro_orbit" data-orbit>
+            <div class="intro_mark-spot" data-mark-spot></div>
+            <span class="orbit_item" style="--c:var(--c-lilac)"><b>React</b></span>
+            <span class="orbit_item orbit_item--sq" style="--c:var(--c-peach)"><b>Next</b></span>
+            <span class="orbit_item orbit_item--dm" style="--c:var(--c-aqua)"><b>TS</b></span>
+            <span class="orbit_item" style="--c:var(--c-sand)"><b>GSAP</b></span>
+            <span class="orbit_item orbit_item--sq" style="--c:var(--c-sky)"><b>Three</b></span>
+            <span class="orbit_item orbit_item--dm" style="--c:var(--volt)"><b>Py</b></span>
+            <span class="orbit_item" style="--c:var(--c-peach)"><b>AI</b></span>
+            <span class="orbit_item orbit_item--sq" style="--c:var(--c-lilac)"><b>Node</b></span>
+          </div>
+          <p class="intro_note copy">“It doesn’t matter where you start. I taught myself to build, and I understand every line I ship.”</p>
+        </div>
+        <div class="intro_overlay" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ============ PROBLEMS (dark panel) ============ -->
+    <section class="dark" aria-label="What gets lost between design and code">
+      <div class="dark_wrapper">
+        <div class="dark_photo" aria-hidden="true"></div>
+        <div class="dark_titles">
+          <p class="h2 dark_title dark_title--a">Most of the web is built to ship</p>
+          <p class="h2 dark_title dark_title--b">and never built to be felt</p>
+        </div>
+        <div class="dark_cloud">
+          <span class="paren" aria-hidden="true">(</span>
+          <ul class="dark_tags">
+            <li class="tag">Janky scroll</li>
+            <li class="tag">Template look</li>
+            <li class="tag">Motion as an afterthought</li>
+            <li class="tag">Handoff gaps</li>
+            <li class="tag">“Works on my machine”</li>
+            <li class="tag">Laggy animations</li>
+            <li class="tag">Slow first paint</li>
+            <li class="tag">Pixel-perfect on one screen</li>
+            <li class="tag">Nobody owns the details</li>
+            <li class="tag">Inaccessible effects</li>
+          </ul>
+          <span class="paren" aria-hidden="true">)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY (revealed through the volt pixels) ============ -->
+    <section class="why">
+      <div class="container why_inner">
+        <h2 class="why_title" data-why-title>That’s why I build with intent</h2>
+      </div>
+    </section>
+
+    <!-- ============ TOOLKIT ============ -->
+    <section class="toolkit" id="toolkit" aria-labelledby="toolkit-title">
+      <div class="container toolkit_head">
+        <p class="note toolkit_note" data-clip>the garage</p>
+        <h2 class="h2 toolkit_title" id="toolkit-title" data-reveal>Four toolboxes, one way of working</h2>
+      </div>
+      <div class="toolkit_grid" data-toolkit>
+        <div class="toolkit_lines" aria-hidden="true"></div>
+        <article class="tool" style="--c:var(--c-sky)"><i></i><h3>Frontend</h3><p>React · Next.js · TypeScript · Tailwind · Vite</p><b>01</b></article>
+        <article class="tool" style="--c:var(--c-peach)"><i></i><h3>Motion &amp; 3D</h3><p>GSAP · Framer Motion · Three.js · Lenis · WebGL</p><b>02</b></article>
+        <article class="tool" style="--c:var(--c-aqua)"><i></i><h3>Back &amp; data</h3><p>Node · Firebase · MongoDB · Stripe · Socket.IO</p><b>03</b></article>
+        <article class="tool" style="--c:var(--c-lilac)"><i></i><h3>AI &amp; beyond</h3><p>Python · ML/AI · Claude API · Groq · Flutter</p><b>04</b></article>
+        <p class="toolkit_stat"><span class="toolkit_num"><span data-count="25">0</span><sup>+</sup></span><span>technologies</span></p>
+        <p class="toolkit_stat"><span class="toolkit_num"><span data-count="23">0</span></span><span>repos on GitHub</span></p>
+        <p class="toolkit_stat toolkit_stat--note note">and one person keeping them in sync</p>
       </div>
 
-      <div class="hero__top">
-        <span class="hero__meta reveal-fade">PORTFOLIO — 2026 EDITION</span>
-        <span class="hero__meta reveal-fade">BASED IN ISLAMABAD, PK</span>
-        <span class="hero__meta hero__meta--wide reveal-fade">SCROLL TO EXPLORE ↓</span>
+      <div class="container loop">
+        <p class="loop_side loop_side--l"><span class="loop_in">Design and code,</span><span class="loop_in">in one head.</span></p>
+        <div class="loop_diagram" data-loop>
+          <svg class="loop_ring" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 8"/></svg>
+          <span class="loop_hub">Your project</span>
+          <span class="loop_node" style="--a:-90">Research</span>
+          <span class="loop_node" style="--a:-30">Design</span>
+          <span class="loop_node" style="--a:30">Prototype</span>
+          <span class="loop_node" style="--a:90">Build</span>
+          <span class="loop_node" style="--a:150">Animate</span>
+          <span class="loop_node" style="--a:210">Ship</span>
+        </div>
+        <p class="loop_side loop_side--r"><span class="loop_in">Every detail,</span><span class="loop_in">owned end to end.</span></p>
       </div>
 
-      <h1 class="hero__title" aria-label="Abdullah Asghar">
-        <span class="hero__line" data-hero-line><span class="hero__line-inner">ABDULLAH</span></span>
-        <span class="hero__line hero__line--indent" data-hero-line>
-          <span class="hero__line-inner"><em class="hero__accent">ASGHAR</em><span class="hero__reg">®</span></span>
-        </span>
-      </h1>
+      <div class="container">
+        <div class="cta-block">
+          <h3 class="cta-block_title">Got a project, a role or a wild idea?</h3>
+          <div class="cta-block_side">
+            <p class="copy">Full-time, freelance or collaboration. Remote-friendly, based in Islamabad (GMT+5), available right now.</p>
+            <a class="btn" data-btn href="mailto:abdullah.asghar.cs@gmail.com?subject=Project%20enquiry">Start a conversation</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <div class="hero__bottom">
-        <p class="hero__tagline reveal-fade">
-          CS STUDENT &amp; SELF-TAUGHT DEVELOPER —<br />
-          REACT · PYTHON · ML/AI · TYPESCRIPT.<br />
-          I UNDERSTAND EVERY LINE I SHIP.
-        </p>
+    <!-- ============ WORK: sticky case-study stack ============ -->
+    <section class="work" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <h2 class="h2 work_title" id="work-title" data-reveal>Selected work, shipped and live</h2>
+        <div class="cases">
+          <article class="case" style="--i:0;--c:var(--c-sky)">
+            <div class="case_text">
+              <p class="case_index">1/6</p>
+              <h3 class="case_title">Nexus Market</h3>
+              <p class="copy case_desc">Production-grade multi-vendor e-commerce. Customer, vendor and admin roles, realtime stock and order tracking, Stripe checkout, reviews with moderation.</p>
+              <ul class="case_list"><li>Next.js 14</li><li>Firebase</li><li>MongoDB</li><li>Stripe</li></ul>
+              <p class="case_links"><a href="https://nexus-market-pi.vercel.app" target="_blank" rel="noopener" data-weight>Live site ↗</a><a href="https://github.com/abdullahasghar966/nexus-market" target="_blank" rel="noopener" data-weight>Code ↗</a></p>
+            </div>
+            <div class="case_visual"><div class="case_shot"><img src="./covers/nexus-market.jpg" alt="Nexus Market storefront" loading="lazy" decoding="async" /></div></div>
+            <span class="case_trame" aria-hidden="true"></span>
+          </article>
+          <article class="case" style="--i:1;--c:var(--c-peach)">
+            <div class="case_text">
+              <p class="case_index">2/6</p>
+              <h3 class="case_title">Sunfizz Storefront</h3>
+              <p class="copy case_desc">A hyper-animated Shopify Hydrogen store. A React Three Fiber 3D can, liquid page transitions, an animated cart and a footer mini-game.</p>
+              <ul class="case_list"><li>Hydrogen</li><li>React Three Fiber</li><li>GSAP</li><li>Lenis</li></ul>
+              <p class="case_links"><a href="https://sunfizz-six.vercel.app" target="_blank" rel="noopener" data-weight>Live site ↗</a><a href="https://github.com/abdullahasghar966/sunfizz-storefront" target="_blank" rel="noopener" data-weight>Code ↗</a></p>
+            </div>
+            <div class="case_visual"><div class="case_shot"><img src="./covers/sunfizz.jpg" alt="Sunfizz storefront with a 3D can" loading="lazy" decoding="async" /></div></div>
+            <span class="case_trame" aria-hidden="true"></span>
+          </article>
+          <article class="case" style="--i:2;--c:var(--c-lilac)">
+            <div class="case_text">
+              <p class="case_index">3/6</p>
+              <h3 class="case_title">Life, Wrapped</h3>
+              <p class="copy case_desc">Turns Spotify, YouTube and Netflix exports into animated story decks. Everything is parsed in the browser and nothing is uploaded. Tested, with CI on every push.</p>
+              <ul class="case_list"><li>Next.js 16</li><li>React 19</li><li>Vitest</li><li>Privacy-first</li></ul>
+              <p class="case_links"><a href="https://life-wrapped-jgpl.vercel.app" target="_blank" rel="noopener" data-weight>Live site ↗</a><a href="https://github.com/abdullahasghar966/life-wrapped" target="_blank" rel="noopener" data-weight>Code ↗</a></p>
+            </div>
+            <div class="case_visual"><div class="case_shot"><img src="./covers/life-wrapped.jpg" alt="Life, Wrapped story deck" loading="lazy" decoding="async" /></div></div>
+            <span class="case_trame" aria-hidden="true"></span>
+          </article>
+          <article class="case" style="--i:3;--c:var(--volt)">
+            <div class="case_text">
+              <p class="case_index">4/6</p>
+              <h3 class="case_title">Lawn Defense 3D</h3>
+              <p class="copy case_desc">A full 3D lane-defense game in Three.js. 16 plants, 10 zombies, 11 levels, hand-built models and particles. No build step, no engine, and playable right here.</p>
+              <ul class="case_list"><li>Three.js</li><li>WebGL</li><li>Game design</li><li>No engine</li></ul>
+              <p class="case_links"><a href="./game/index.html" data-play data-weight>▶ Play it here</a><a href="https://github.com/abdullahasghar966/lawn-defense-3d" target="_blank" rel="noopener" data-weight>Code ↗</a></p>
+            </div>
+            <div class="case_visual"><a class="case_shot" href="./game/index.html" data-play aria-label="Play Lawn Defense 3D"><img src="./covers/lawn-defense.jpg" alt="Lawn Defense 3D gameplay" loading="lazy" decoding="async" /></a></div>
+            <span class="case_trame" aria-hidden="true"></span>
+          </article>
+          <article class="case" style="--i:4;--c:var(--c-aqua)">
+            <div class="case_text">
+              <p class="case_index">5/6</p>
+              <h3 class="case_title">HealthCast</h3>
+              <p class="copy case_desc">Client work: a redesigned marketing site for Health Cast SMC Pvt Ltd, a real healthcare company. Shipped and live.</p>
+              <ul class="case_list"><li>Next.js 16</li><li>TypeScript</li><li>Tailwind v4</li><li>Motion</li></ul>
+              <p class="case_links"><a href="https://healthcast-website.vercel.app" target="_blank" rel="noopener" data-weight>Live site ↗</a><a href="https://github.com/abdullahasghar966/healthcast-website" target="_blank" rel="noopener" data-weight>Code ↗</a></p>
+            </div>
+            <div class="case_visual"><div class="case_shot"><img src="./covers/healthcast.jpg" alt="HealthCast website" loading="lazy" decoding="async" /></div></div>
+            <span class="case_trame" aria-hidden="true"></span>
+          </article>
+          <article class="case case--last" style="--i:5;--c:var(--c-sand)">
+            <div class="case_text">
+              <p class="case_index">6/6</p>
+              <h3 class="case_title">THE W — WNBA Showcase</h3>
+              <p class="copy case_desc">A scroll-driven showcase of eight players. Broadcast-brutalist design, a physics carousel, a custom cursor and a scoped WebGL hover shader.</p>
+              <ul class="case_list"><li>React</li><li>WebGL</li><li>GSAP</li><li>Physics</li></ul>
+              <p class="case_links"><a href="https://wnba-players-showcase.vercel.app" target="_blank" rel="noopener" data-weight>Live site ↗</a><a href="https://github.com/abdullahasghar966/the-w-wnba-showcase" target="_blank" rel="noopener" data-weight>Code ↗</a></p>
+            </div>
+            <div class="case_visual"><div class="case_shot"><img src="./covers/the-w.jpg" alt="THE W WNBA showcase" loading="lazy" decoding="async" /></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <a class="hero__ticket reveal-fade" href="https://nexus-market-pi.vercel.app" target="_blank" rel="noopener" data-cursor="view" data-magnetic>
-          <span class="hero__ticket-label">LATEST SHIP</span>
-          <span class="hero__ticket-name">NEXUS<br />MARKET</span>
-          <span class="hero__ticket-tag">NEXT.JS 14 — LIVE ON VERCEL ↗</span>
-        </a>
+    <!-- ============ ARCHIVE: endless folders ============ -->
+    <section class="archive" data-grid-band aria-labelledby="archive-title">
+      <div class="container archive_inner">
+        <div class="card archive_card">
+          <h2 class="h3 archive_title" id="archive-title">Twenty-three repos and counting</h2>
+          <p class="copy">Every build and every experiment is on record, from a pixel-art photobooth to an x86 cipher in MASM. Hover the stack to flick through it.</p>
+          <a class="btn" data-btn href="https://github.com/abdullahasghar966" target="_blank" rel="noopener">Open GitHub</a>
+        </div>
+        <div class="folders" data-folders>
+          <div class="folders_stack"></div>
+        </div>
+      </div>
+    </section>
 
-        <div class="hero__badge reveal-fade" aria-hidden="true" data-magnetic>
-          <svg class="hero__badge-svg" id="hero-badge" viewBox="0 0 120 120">
-            <defs><path id="badge-circle" d="M 60,60 m -44,0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0"></path></defs>
-            <text><textPath href="#badge-circle">OPEN TO WORK • FREELANCE • COLLABS • OPEN TO WORK •</textPath></text>
+    <!-- ============ SERVICES ============ -->
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="services_head">
+          <p class="note" data-clip>what I do</p>
+          <h2 class="h2" id="services-title" data-reveal>Everything a product needs, at every stage</h2>
+        </div>
+
+        <div class="srow">
+          <div class="srow_aside"><span class="pill">Design</span><h3 class="srow_title">Turn an idea into an interface</h3></div>
+          <div class="srow_grid">
+            <article class="scard" style="--c:var(--c-sky)"><h4>UI/UX design</h4><div class="scard_swap"><p class="scard_note note">flows first</p><p class="scard_desc">User flows, wireframes and polished UI with a clear hierarchy.</p></div><i class="ico ico--dots"></i></article>
+            <article class="scard" style="--c:var(--c-lilac)"><h4>Design systems</h4><div class="scard_swap"><p class="scard_note note">tokens to type</p><p class="scard_desc">Tokens, type scales and components that stay consistent.</p></div><i class="ico ico--grid"></i></article>
+            <article class="scard" style="--c:var(--c-peach)"><h4>Prototyping</h4><div class="scard_swap"><p class="scard_note note">click it today</p><p class="scard_desc">Interactive prototypes you can click through before a line of production code.</p></div><i class="ico ico--arch"></i></article>
+          </div>
+        </div>
+        <div class="srow">
+          <div class="srow_aside"><span class="pill">Build</span><h3 class="srow_title">Ship the full stack</h3></div>
+          <div class="srow_grid">
+            <article class="scard" style="--c:var(--volt)"><h4>Web apps</h4><div class="scard_swap"><p class="scard_note note">React · Next</p><p class="scard_desc">React and Next.js apps in TypeScript, fast and accessible by default.</p></div><i class="ico ico--pill"></i></article>
+            <article class="scard" style="--c:var(--c-aqua)"><h4>Back ends &amp; data</h4><div class="scard_swap"><p class="scard_note note">Node · Mongo</p><p class="scard_desc">Node, Firebase and MongoDB with auth, realtime features and sockets.</p></div><i class="ico ico--stack"></i></article>
+            <article class="scard" style="--c:var(--c-sand)"><h4>Commerce</h4><div class="scard_swap"><p class="scard_note note">Stripe · Shopify</p><p class="scard_desc">Stripe checkouts and Shopify Hydrogen storefronts.</p></div><i class="ico ico--star"></i></article>
+          </div>
+        </div>
+        <div class="srow">
+          <div class="srow_aside"><span class="pill">Motion</span><h3 class="srow_title">Make it feel alive</h3></div>
+          <div class="srow_grid">
+            <article class="scard" style="--c:var(--c-peach)"><h4>Scroll storytelling</h4><div class="scard_swap"><p class="scard_note note">GSAP · Lenis</p><p class="scard_desc">Pinned scenes, scrubbed timelines and smooth scrolling with GSAP and Lenis.</p></div><i class="ico ico--wave"></i></article>
+            <article class="scard" style="--c:var(--c-sky)"><h4>WebGL &amp; 3D</h4><div class="scard_swap"><p class="scard_note note">Three · shaders</p><p class="scard_desc">Three.js scenes, custom shaders and small browser games.</p></div><i class="ico ico--cube"></i></article>
+            <article class="scard" style="--c:var(--c-lilac)"><h4>Micro-interactions</h4><div class="scard_swap"><p class="scard_note note">60fps or bust</p><p class="scard_desc">Hover states, transitions and feedback that hold 60fps.</p></div><i class="ico ico--spark"></i></article>
+          </div>
+        </div>
+        <div class="srow">
+          <div class="srow_aside"><span class="pill">Intelligence</span><h3 class="srow_title">Put AI to work</h3></div>
+          <div class="srow_grid">
+            <article class="scard" style="--c:var(--c-aqua)"><h4>AI features</h4><div class="scard_swap"><p class="scard_note note">Claude · Groq</p><p class="scard_desc">Chat, streaming and voice built on the Claude and Groq APIs.</p></div><i class="ico ico--bars"></i></article>
+            <article class="scard" style="--c:var(--volt)"><h4>ML &amp; Python</h4><div class="scard_swap"><p class="scard_note note">data → insight</p><p class="scard_desc">Python models, data analysis and dashboards.</p></div><i class="ico ico--ring"></i></article>
+            <article class="scard" style="--c:var(--c-sand)"><h4>Mobile</h4><div class="scard_swap"><p class="scard_note note">Flutter</p><p class="scard_desc">Flutter apps when the product needs a phone.</p></div><i class="ico ico--half"></i></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TIMELINE WHEEL ============ -->
+    <section class="timeline" aria-labelledby="timeline-title">
+      <div class="timeline_pin">
+        <div class="container timeline_intro">
+          <p class="note">the shipping log</p>
+          <h2 class="h2" id="timeline-title">No fake milestones, just the actual timeline</h2>
+        </div>
+        <div class="timeline_stage">
+          <svg class="timeline_ring" viewBox="0 0 2000 2000" aria-hidden="true">
+            <circle cx="1000" cy="1000" r="985" fill="none" stroke="currentColor" stroke-width="30" stroke-dasharray="3 10"/>
           </svg>
-          <span class="hero__badge-core">✦</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ MARQUEE 1 ============ -->
-    <div class="marquee marquee--border" data-marquee data-speed="1">
-      <div class="marquee__track">
-        <div class="marquee__group">
-          <span>REACT</span><i>✦</i><span>NEXT.JS</span><i>✦</i><span>TYPESCRIPT</span><i>✦</i><span>PYTHON</span><i>✦</i><span>ML/AI</span><i>✦</i><span>GSAP</span><i>✦</i><span>THREE.JS</span><i>✦</i><span>TAILWIND</span><i>✦</i><span>FIREBASE</span><i>✦</i><span>FLUTTER</span><i>✦</i>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============ STATEMENT / ABOUT ============ -->
-    <section class="statement section--paper" id="about">
-      <div class="section-head">
-        <span class="section-head__label reveal-fade">MESSAGE FROM ABDULLAH</span>
-        <span class="section-head__label reveal-fade">( EST. 2023 )</span>
-      </div>
-
-      <p class="statement__text" data-scrub-words>
-        Redefining what self-taught means. Shipping real products, chasing craft in every detail, bringing it all in all ways — building a legacy in code, on and off the keyboard.
-      </p>
-
-      <div class="statement__quote-wrap">
-        <div class="statement__rule" aria-hidden="true"></div>
-        <blockquote class="statement__quote reveal-lines">
-          “It doesn’t matter where you start — I taught myself to build, and I understand every line I ship.”
-        </blockquote>
-        <div class="statement__rule" aria-hidden="true"></div>
-      </div>
-
-      <div class="stats">
-        <div class="stats__item">
-          <span class="stats__num"><span data-count="21">0</span></span>
-          <span class="stats__label">PUBLIC REPOS</span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__num"><span data-count="17">0</span></span>
-          <span class="stats__label">LIVE DEPLOYMENTS</span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__num"><span data-count="12">0</span>+</span>
-          <span class="stats__label">TECHNOLOGIES</span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__num"><span data-count="2026">2023</span></span>
-          <span class="stats__label">CURRENT SEASON</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ HALL OF FAME (HORIZONTAL) ============ -->
-    <section class="hof" id="work">
-      <div class="hof__pin" id="hof-pin">
-        <div class="hof__progress" aria-hidden="true"><span id="hof-progress-bar"></span></div>
-        <div class="hof__track" id="hof-track">
-
-          <!-- Intro panel -->
-          <article class="hof__panel hof__panel--intro">
-            <span class="hof__intro-label">SELECTED WORK — DRAG THE SCROLL</span>
-            <h2 class="hof__intro-title">
-              <span>PROJECTS</span>
-              <span class="hof__intro-outline">HALL OF FAME</span>
-            </h2>
-            <p class="hof__intro-copy">From animation-heavy showcases to full-stack marketplaces — every build shipped with intent. Scroll sideways through the archive.</p>
-            <span class="hof__intro-arrow" aria-hidden="true">⟶</span>
-          </article>
-
-          <!-- 01 NEXUS MARKET -->
-          <article class="hof__panel project" data-accent="#7aa2ff" data-ink="#070b14">
-            <a class="project__cover project__cover--shot" href="https://nexus-market-pi.vercel.app" target="_blank" rel="noopener" data-cursor="view" aria-label="Nexus Market — multi-vendor marketplace homepage — live site">
-              <img class="project__shot" src="./covers/nexus-market.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="Nexus Market — multi-vendor marketplace homepage" />
-              <span class="project__cover-index">01</span>
-              <span class="project__cover-meta">MULTI-VENDOR MARKETPLACE — 3 ROLES</span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">NEXUS MARKET</h3>
-              <p class="project__desc">Production-grade multi-vendor e-commerce. Customer, vendor &amp; admin roles, realtime stock and order tracking, Stripe checkout, reviews with moderation.</p>
-              <div class="project__tags"><span>NEXT.JS 14</span><span>FIREBASE</span><span>STRIPE</span></div>
-              <div class="project__links">
-                <a href="https://nexus-market-pi.vercel.app" target="_blank" rel="noopener" data-cursor="link" data-magnetic>LIVE SITE ↗</a>
-                <a href="https://github.com/abdullahasghar966/nexus-market" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 02 SUNFIZZ -->
-          <article class="hof__panel project" data-accent="#ff8a2a" data-ink="#140b05">
-            <a class="project__cover project__cover--shot" href="https://sunfizz-six.vercel.app" target="_blank" rel="noopener" data-cursor="view" aria-label="Sunfizz — storefront hero with a 3D soda can — live site">
-              <img class="project__shot" src="./covers/sunfizz.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="Sunfizz — storefront hero with a 3D soda can" />
-              <span class="project__cover-index">02</span>
-              <span class="project__cover-meta">SHOPIFY HYDROGEN STOREFRONT — 3D CAN</span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">SUNFIZZ STOREFRONT</h3>
-              <p class="project__desc">A hyper-animated Shopify Hydrogen store. A React Three Fiber 3D can, liquid page transitions, an animated cart and a footer mini-game.</p>
-              <div class="project__tags"><span>HYDROGEN</span><span>R3F</span><span>GSAP</span></div>
-              <div class="project__links">
-                <a href="https://sunfizz-six.vercel.app" target="_blank" rel="noopener" data-cursor="link" data-magnetic>LIVE SITE ↗</a>
-                <a href="https://github.com/abdullahasghar966/sunfizz-storefront" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 03 LIFE, WRAPPED -->
-          <article class="hof__panel project" data-accent="#ff5a2e" data-ink="#140806">
-            <a class="project__cover project__cover--shot" href="https://life-wrapped-jgpl.vercel.app" target="_blank" rel="noopener" data-cursor="view" aria-label="Life, Wrapped — story deck and receipt of a year online — live site">
-              <img class="project__shot" src="./covers/life-wrapped.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="Life, Wrapped — story deck and receipt of a year online" />
-              <span class="project__cover-index">03</span>
-              <span class="project__cover-meta">PRIVACY-FIRST DATA STORIES — IN-BROWSER</span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">LIFE, WRAPPED</h3>
-              <p class="project__desc">Turns Spotify, YouTube and Netflix data exports into animated story decks. Everything is parsed in the browser and nothing is uploaded. Tested, with CI on every push.</p>
-              <div class="project__tags"><span>NEXT.JS 16</span><span>REACT 19</span><span>VITEST</span></div>
-              <div class="project__links">
-                <a href="https://life-wrapped-jgpl.vercel.app" target="_blank" rel="noopener" data-cursor="link" data-magnetic>LIVE SITE ↗</a>
-                <a href="https://github.com/abdullahasghar966/life-wrapped" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 04 LAWN DEFENSE 3D -->
-          <article class="hof__panel project" data-accent="#7ed957" data-ink="#0a1206">
-            <!-- Without JS this simply opens the game; with JS it plays inline. -->
-            <a class="project__cover project__cover--shot project__cover--play" href="./game/index.html" data-play data-cursor="play" aria-label="Play Lawn Defense 3D in the browser">
-              <img class="project__shot" src="./covers/lawn-defense.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="Lawn Defense 3D — wave four, zombies advancing across the 3D lawn" />
-              <span class="project__cover-index">04</span>
-              <span class="project__cover-meta">THREE.JS LANE DEFENSE — 11 LEVELS</span>
-              <span class="project__play" aria-hidden="true"><i></i>PLAY IT HERE</span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">LAWN DEFENSE 3D</h3>
-              <p class="project__desc">A full 3D lane-defense game in Three.js — 16 plants, 10 zombies, 11 levels, hand-built models and particles. No build step, no engine. Playable right here.</p>
-              <div class="project__tags"><span>THREE.JS</span><span>WEBGL</span><span>GAME</span></div>
-              <div class="project__links">
-                <a href="./game/index.html" data-play data-cursor="link" data-magnetic>▶ PLAY NOW</a>
-                <a href="https://github.com/abdullahasghar966/lawn-defense-3d" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 05 HEALTHCAST -->
-          <article class="hof__panel project" data-accent="#2ec4b6" data-ink="#06120f">
-            <a class="project__cover project__cover--shot" href="https://github.com/abdullahasghar966/healthcast-website" target="_blank" rel="noopener" data-cursor="view" aria-label="HealthCast website on GitHub">
-              <img class="project__shot" src="./covers/healthcast.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="HealthCast — marketing site for a healthcare company" />
-              <span class="project__cover-index">05</span>
-              <span class="project__cover-meta">CLIENT WORK — HEALTH CAST SMC PVT LTD</span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">HEALTHCAST</h3>
-              <p class="project__desc">A redesigned marketing site for a real healthcare company. Next.js 16, TypeScript, Tailwind v4 and Motion — shipped and live.</p>
-              <div class="project__tags"><span>NEXT.JS 16</span><span>TYPESCRIPT</span><span>MOTION</span></div>
-              <div class="project__links">
-                <a href="https://healthcast-website.vercel.app" target="_blank" rel="noopener" data-cursor="link" data-magnetic>LIVE SITE ↗</a>
-                <a href="https://github.com/abdullahasghar966/healthcast-website" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 06 THE W -->
-          <article class="hof__panel project" data-accent="#ff6b00" data-ink="#120a06">
-            <a class="project__cover project__cover--shot" href="https://github.com/abdullahasghar966/the-w-wnba-showcase" target="_blank" rel="noopener" data-cursor="view" aria-label="The W — WNBA Showcase on GitHub">
-              <img class="project__shot" src="./covers/the-w.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="THE W — WNBA player showcase homepage" />
-              <span class="project__cover-index">06</span>
-              <span class="project__cover-meta">SCROLL-DRIVEN SHOWCASE — 8 PLAYERS</span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">THE W — WNBA SHOWCASE</h3>
-              <p class="project__desc">Awwwards-caliber scroll experience. Broadcast-brutalist design, physics carousel, custom cursor and a scoped WebGL hover shader.</p>
-              <div class="project__tags"><span>REACT</span><span>WEBGL</span><span>GSAP</span></div>
-              <div class="project__links">
-                <a href="https://wnba-players-showcase.vercel.app" target="_blank" rel="noopener" data-cursor="link" data-magnetic>LIVE SITE ↗</a>
-                <a href="https://github.com/abdullahasghar966/the-w-wnba-showcase" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 07 DAHLIA -->
-          <article class="hof__panel project" data-accent="#7fb069" data-ink="#0d130b">
-            <a class="project__cover project__cover--shot" href="https://github.com/abdullahasghar966/dahlia-islamabad" target="_blank" rel="noopener" data-cursor="view" aria-label="Dahlia Islamabad on GitHub">
-              <img class="project__shot" src="./covers/dahlia.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="Dahlia Islamabad — cafe and plant nursery site" />
-              <span class="project__cover-index">07</span>
-              <span class="project__cover-meta">CAFE + PLANT NURSERY — F-6 MARKAZ</span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">DAHLIA ISLAMABAD</h3>
-              <p class="project__desc">A living brand site for a cafe & plant nursery. Next.js 15, React 19, Tailwind v4 with Lenis-smooth GSAP motion throughout.</p>
-              <div class="project__tags"><span>NEXT.JS 15</span><span>TAILWIND V4</span><span>LENIS</span></div>
-              <div class="project__links">
-                <a href="https://dahlia-islamabad.vercel.app" target="_blank" rel="noopener" data-cursor="link" data-magnetic>LIVE SITE ↗</a>
-                <a href="https://github.com/abdullahasghar966/dahlia-islamabad" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 08 THE BODYGUARD -->
-          <article class="hof__panel project" data-accent="#ffcd00" data-ink="#131005">
-            <a class="project__cover project__cover--shot" href="https://github.com/abdullahasghar966/the-bodyguard" target="_blank" rel="noopener" data-cursor="view" aria-label="The Bodyguard on GitHub">
-              <img class="project__shot" src="./covers/the-bodyguard.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="The Bodyguard — Sophie Cunningham showcase" />
-              <span class="project__cover-index">08</span>
-              <span class="project__cover-meta">SINGLE-PLAYER SHOWCASE — INDIANA FEVER</span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">THE BODYGUARD</h3>
-              <p class="project__desc">Interactive tribute to Sophie Cunningham. Flat Fever-gold, kinetic type, a cursor ink-smear hero, a drag-to-compare "two uniforms" reveal and synthesized sound.</p>
-              <div class="project__tags"><span>REACT 18</span><span>VITE</span><span>CANVAS</span></div>
-              <div class="project__links">
-                <a href="https://08-sophie-cunningham.vercel.app" target="_blank" rel="noopener" data-cursor="link" data-magnetic>LIVE SITE ↗</a>
-                <a href="https://github.com/abdullahasghar966/the-bodyguard" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 09 MARGIN -->
-          <article class="hof__panel project" data-accent="#e8c547" data-ink="#12100a">
-            <a class="project__cover project__cover--shot" href="https://github.com/abdullahasghar966/sticky-notes-app" target="_blank" rel="noopener" data-cursor="view" aria-label="Margin — Sticky Notes on GitHub">
-              <img class="project__shot" src="./covers/margin.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="Margin — sticky notes on a masonry wall" />
-              <span class="project__cover-index">09</span>
-              <span class="project__cover-meta">VOICE-FIRST STICKY NOTES — LOCAL-FIRST</span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">MARGIN — STICKY NOTES</h3>
-              <p class="project__desc">A calm, paper-inspired notes app. Type or speak, organize on a masonry wall, everything persists locally — editorial design, end-to-end motion.</p>
-              <div class="project__tags"><span>REACT</span><span>FRAMER MOTION</span><span>SPEECH API</span></div>
-              <div class="project__links">
-                <a href="https://stickynotesapp-two.vercel.app" target="_blank" rel="noopener" data-cursor="link" data-magnetic>LIVE SITE ↗</a>
-                <a href="https://github.com/abdullahasghar966/sticky-notes-app" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 10 AI CHATBOT -->
-          <article class="hof__panel project" data-accent="#3ddad7" data-ink="#081213">
-            <a class="project__cover" href="https://github.com/abdullahasghar966/ai-assistant-chatbot" target="_blank" rel="noopener" data-cursor="view" aria-label="AI Assistant Chatbot on GitHub">
-              <div class="project__cover-bg"></div>
-              <span class="project__cover-word" data-cover-parallax>ORBIT</span>
-              <span class="project__cover-index">10</span>
-              <span class="project__cover-meta">LIVE GROQ STREAMING — VOICE I/O</span>
-              <span class="project__cover-ring" aria-hidden="true"></span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">AI ASSISTANT CHATBOT</h3>
-              <p class="project__desc">General-purpose AI chat with live token streaming, voice input/output and an Insights panel — summaries, you-vs-AI split, themes.</p>
-              <div class="project__tags"><span>NEXT.JS 14</span><span>GROQ</span><span>TYPESCRIPT</span></div>
-              <div class="project__links">
-                <a href="https://ai-assistant-chatbot-dusky.vercel.app" target="_blank" rel="noopener" data-cursor="link" data-magnetic>LIVE SITE ↗</a>
-                <a href="https://github.com/abdullahasghar966/ai-assistant-chatbot" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- 11 VOID -->
-          <article class="hof__panel project" data-accent="#54f2a6" data-ink="#06110c">
-            <a class="project__cover" href="https://github.com/abdullahasghar966/void-resume-analyzer" target="_blank" rel="noopener" data-cursor="view" aria-label="Void Resume Analyzer on GitHub">
-              <div class="project__cover-bg"></div>
-              <span class="project__cover-word" data-cover-parallax>VOID</span>
-              <span class="project__cover-index">11</span>
-              <span class="project__cover-meta">AI RESUME ANALYZER — TERMINAL THEME</span>
-              <span class="project__cover-ring" aria-hidden="true"></span>
-            </a>
-            <div class="project__info">
-              <h3 class="project__name">VOID RESUME ANALYZER</h3>
-              <p class="project__desc">AI-powered resume analysis wrapped in a bioluminescent terminal aesthetic — scoring, insights and rewrites at a keystroke.</p>
-              <div class="project__tags"><span>TYPESCRIPT</span><span>AI</span><span>DESIGN</span></div>
-              <div class="project__links">
-                <a href="https://void-resume-analyzer.vercel.app" target="_blank" rel="noopener" data-cursor="link" data-magnetic>LIVE SITE ↗</a>
-                <a href="https://github.com/abdullahasghar966/void-resume-analyzer" target="_blank" rel="noopener" data-cursor="link" data-magnetic>CODE ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Outro panel -->
-          <article class="hof__panel hof__panel--outro">
-            <h2 class="hof__outro-title">WANT<br />MORE?</h2>
-            <p class="hof__outro-copy">The full archive lives just below — every repo, every experiment.</p>
-            <span class="hof__outro-arrow" aria-hidden="true">↓</span>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ ARCHIVE ============ -->
-    <section class="archive section--paper" id="archive">
-      <div class="section-head">
-        <span class="section-head__label reveal-fade">FULL ARCHIVE</span>
-        <span class="section-head__label reveal-fade">( 21 PUBLIC REPOS )</span>
-      </div>
-      <h2 class="archive__title reveal-lines">EVERY BUILD<br /><em>ON RECORD</em></h2>
-
-      <ul class="archive__list">
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/nexus-market" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">01</span><span class="archive__name">NEXUS MARKET</span><span class="archive__stack">NEXT.JS · FIREBASE · STRIPE</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/sunfizz-storefront" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">02</span><span class="archive__name">SUNFIZZ STOREFRONT</span><span class="archive__stack">HYDROGEN · R3F · GSAP</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/life-wrapped" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">03</span><span class="archive__name">LIFE, WRAPPED</span><span class="archive__stack">NEXT.JS 16 · VITEST</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/cui-connect" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">04</span><span class="archive__name">CUI CONNECT</span><span class="archive__stack">SOCKET.IO · EXPRESS · MONGODB</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/nocturne" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">05</span><span class="archive__name">NOCTURNE</span><span class="archive__stack">THREE.JS · SHADERS · GSAP</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/lawn-defense-3d" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">06</span><span class="archive__name">LAWN DEFENSE 3D</span><span class="archive__stack">THREE.JS · WEBGL</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/healthcast-website" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">07</span><span class="archive__name">HEALTHCAST</span><span class="archive__stack">NEXT.JS 16 · MOTION</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/abdullah-asghar-portfolio" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">08</span><span class="archive__name">THIS PORTFOLIO</span><span class="archive__stack">VITE · GSAP · LENIS</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/dahlia-islamabad" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">09</span><span class="archive__name">DAHLIA ISLAMABAD</span><span class="archive__stack">NEXT.JS 15 · GSAP</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/the-bodyguard" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">10</span><span class="archive__name">THE BODYGUARD</span><span class="archive__stack">REACT 18 · VITE</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/the-w-wnba-showcase" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">11</span><span class="archive__name">THE W — WNBA</span><span class="archive__stack">REACT · WEBGL</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/sticky-notes-app" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">12</span><span class="archive__name">MARGIN — STICKY NOTES</span><span class="archive__stack">REACT · FRAMER MOTION</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/ai-assistant-chatbot" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">13</span><span class="archive__name">AI ASSISTANT CHATBOT</span><span class="archive__stack">NEXT.JS · GROQ</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/aperture-gallery" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">14</span><span class="archive__name">APERTURE GALLERY</span><span class="archive__stack">REACT · UNSPLASH API</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/void-resume-analyzer" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">15</span><span class="archive__name">VOID RESUME ANALYZER</span><span class="archive__stack">TYPESCRIPT · AI</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/xauusd-gold-terminal" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">16</span><span class="archive__name">XAUUSD GOLD TERMINAL</span><span class="archive__stack">JAVASCRIPT · DATA-VIZ</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/internee-pk-redesign" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">17</span><span class="archive__name">INTERNEE.PK REDESIGN</span><span class="archive__stack">REACT · THREE.JS</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/fitness-tracker-mad" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">18</span><span class="archive__name">FITNESS TRACKER</span><span class="archive__stack">FLUTTER · DART</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/DoodleBooth-Pixel-Sticker-Maker" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">19</span><span class="archive__name">DOODLEBOOTH</span><span class="archive__stack">TYPESCRIPT · CLAUDE API</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-        <li class="archive__row" data-archive><a href="https://github.com/abdullahasghar966/L-SEC-xor-cipher-masm" target="_blank" rel="noopener" data-cursor="view"><span class="archive__idx">20</span><span class="archive__name">L-SEC CIPHER</span><span class="archive__stack">X86 MASM ASSEMBLY</span><span class="archive__year">2026 <i>↗</i></span></a></li>
-      </ul>
-    </section>
-
-    <!-- ============ MARQUEE 2 ============ -->
-    <div class="marquee marquee--big" data-marquee data-speed="-1">
-      <div class="marquee__track">
-        <div class="marquee__group">
-          <span class="marquee__ghost">ALWAYS SHIPPING</span><i>✦</i><span class="marquee__ghost">ALWAYS LEARNING</span><i>✦</i>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============ ON / OFF KEYBOARD ============ -->
-    <section class="split">
-      <a class="split__card" href="https://github.com/abdullahasghar966" target="_blank" rel="noopener" data-cursor="view">
-        <div class="split__bg split__bg--on"></div>
-        <span class="split__label">GITHUB — 21 REPOS</span>
-        <h2 class="split__title"><span>ON</span><span>KEYBOARD</span></h2>
-        <p class="split__copy">Latest commits, experiments and every line of shipped code — straight from the source.</p>
-        <span class="split__cta">VISIT GITHUB ↗</span>
-      </a>
-      <a class="split__card" href="https://www.linkedin.com/in/abdullah-asghar6767/" target="_blank" rel="noopener" data-cursor="view">
-        <div class="split__bg split__bg--off"></div>
-        <span class="split__label">LINKEDIN — THE HUMAN</span>
-        <h2 class="split__title"><span>OFF</span><span>KEYBOARD</span></h2>
-        <p class="split__copy">CS undergrad at COMSATS, F1 weekends, and the story behind the commits.</p>
-        <span class="split__cta">VISIT LINKEDIN ↗</span>
-      </a>
-    </section>
-
-    <!-- ============ STACK ============ -->
-    <section class="stack section--paper" id="stack">
-      <div class="section-head">
-        <span class="section-head__label reveal-fade">THE GARAGE</span>
-        <span class="section-head__label reveal-fade">( TOOLS &amp; TECHNOLOGIES )</span>
-      </div>
-      <h2 class="stack__title reveal-lines">BUILT<br /><em>WITH</em></h2>
-
-      <div class="stack__grid">
-        <div class="stack__col" data-stack-col>
-          <span class="stack__col-label">01 — FRONTEND</span>
-          <ul>
-            <li data-cursor="link">REACT</li>
-            <li data-cursor="link">NEXT.JS</li>
-            <li data-cursor="link">TYPESCRIPT</li>
-            <li data-cursor="link">TAILWIND CSS</li>
-            <li data-cursor="link">VITE</li>
-          </ul>
-        </div>
-        <div class="stack__col" data-stack-col>
-          <span class="stack__col-label">02 — MOTION &amp; 3D</span>
-          <ul>
-            <li data-cursor="link">GSAP</li>
-            <li data-cursor="link">FRAMER MOTION</li>
-            <li data-cursor="link">THREE.JS</li>
-            <li data-cursor="link">LENIS</li>
-            <li data-cursor="link">WEBGL</li>
-          </ul>
-        </div>
-        <div class="stack__col" data-stack-col>
-          <span class="stack__col-label">03 — BACK &amp; DATA</span>
-          <ul>
-            <li data-cursor="link">NODE.JS</li>
-            <li data-cursor="link">FIREBASE</li>
-            <li data-cursor="link">MONGODB</li>
-            <li data-cursor="link">STRIPE</li>
-            <li data-cursor="link">PYTHON</li>
-          </ul>
-        </div>
-        <div class="stack__col" data-stack-col>
-          <span class="stack__col-label">04 — AI &amp; BEYOND</span>
-          <ul>
-            <li data-cursor="link">ML / AI</li>
-            <li data-cursor="link">CLAUDE API</li>
-            <li data-cursor="link">GROQ</li>
-            <li data-cursor="link">FLUTTER</li>
-            <li data-cursor="link">X86 ASSEMBLY</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ TELEMETRY ============ -->
-    <section class="telemetry" id="telemetry">
-      <div class="section-head">
-        <span class="section-head__label reveal-fade">TELEMETRY</span>
-        <span class="section-head__label reveal-fade">( SOURCED FROM GITHUB )</span>
-      </div>
-      <h2 class="telemetry__title reveal-lines">21 REPOS.<br /><em>153 DAYS.</em></h2>
-      <p class="telemetry__sub reveal-fade">Every public repo on the account was created between May 9 and October 8, 2026. One long shipping streak, charted.</p>
-
-      <div class="telemetry__grid">
-        <figure class="telemetry__chart">
-          <figcaption class="telemetry__caption">LANGUAGE SPLIT — 20 TAGGED REPOS</figcaption>
-          <div class="langbars" id="langbars">
-            <div class="langbars__row" data-value="9" data-max="9" title="JavaScript — 9 of 20 tagged repos (45%)">
-              <span class="langbars__label">JAVASCRIPT</span>
-              <span class="langbars__track"><span class="langbars__fill"></span></span>
-              <span class="langbars__value" data-roll="9">0</span>
-            </div>
-            <div class="langbars__row" data-value="9" data-max="9" title="TypeScript — 9 of 20 tagged repos (45%)">
-              <span class="langbars__label">TYPESCRIPT</span>
-              <span class="langbars__track"><span class="langbars__fill"></span></span>
-              <span class="langbars__value" data-roll="9">0</span>
-            </div>
-            <div class="langbars__row" data-value="1" data-max="9" title="Dart — 1 of 20 tagged repos (5%)">
-              <span class="langbars__label">DART</span>
-              <span class="langbars__track"><span class="langbars__fill"></span></span>
-              <span class="langbars__value" data-roll="1">0</span>
-            </div>
-            <div class="langbars__row" data-value="1" data-max="9" title="x86 Assembly — 1 of 20 tagged repos (5%)">
-              <span class="langbars__label">ASSEMBLY</span>
-              <span class="langbars__track"><span class="langbars__fill"></span></span>
-              <span class="langbars__value" data-roll="1">0</span>
-            </div>
+          <div class="timeline_wheel">
+            <article class="tcard" style="--k:0;--c:var(--c-sky)"><div class="tcard_head"><span class="tcard_num">23</span><span class="tcard_tag note">Day one</span></div><p class="label">2023</p><ul><li>Started teaching myself to code</li><li>CS undergrad at COMSATS</li></ul></article>
+            <article class="tcard" style="--k:1;--c:var(--c-peach)"><div class="tcard_head"><span class="tcard_num">05</span><span class="tcard_tag note">Streak starts</span></div><p class="label">May 2026</p><ul><li>First public repo on May 9</li><li>Void, XAUUSD terminal, L-SEC cipher</li></ul></article>
+            <article class="tcard" style="--k:2;--c:var(--c-lilac)"><div class="tcard_head"><span class="tcard_num">06</span><span class="tcard_tag note">Full stack</span></div><p class="label">June 2026</p><ul><li>Nexus Market marketplace</li><li>AI chatbot, Margin notes</li></ul></article>
+            <article class="tcard" style="--k:3;--c:var(--volt)"><div class="tcard_head"><span class="tcard_num">07</span><span class="tcard_tag note">Client work</span></div><p class="label">July 2026</p><ul><li>HealthCast and Dahlia, live</li><li>THE W, Lawn Defense 3D</li></ul></article>
+            <article class="tcard" style="--k:4;--c:var(--c-aqua)"><div class="tcard_head"><span class="tcard_num">10</span><span class="tcard_tag note">Going deeper</span></div><p class="label">Sep–Oct 2026</p><ul><li>Sunfizz, Nocturne, Life Wrapped</li><li>CUI Connect platform</li></ul></article>
+            <article class="tcard" style="--k:5;--c:var(--c-sand)"><div class="tcard_head"><span class="tcard_num">11</span><span class="tcard_tag note">Up next</span></div><p class="label">Nov 2026 · now</p><ul><li>Shatter Router, WebGL transitions</li><li>Your project?</li></ul></article>
           </div>
-        </figure>
-
-        <figure class="telemetry__chart">
-          <figcaption class="telemetry__caption">SHIPS OVER TIME — CUMULATIVE PUBLIC REPOS, 2026</figcaption>
-          <div class="shipchart" id="shipchart">
-            <div class="shipchart__tip" id="ship-tip" aria-hidden="true"></div>
-          </div>
-        </figure>
+        </div>
       </div>
-    </section>
-
-    <!-- ============ OPEN TO ROLES ============ -->
-    <section class="roles section--paper" id="roles">
-      <div class="section-head">
-        <span class="section-head__label reveal-fade">OPEN TO ROLES</span>
-        <span class="section-head__label reveal-fade">( AVAILABLE — IMMEDIATELY )</span>
-      </div>
-      <h2 class="roles__title reveal-lines">READY FOR<br /><em>THE GRID</em></h2>
-      <p class="roles__sub reveal-fade">Full-time, freelance or collaboration — these are the seats I'm built for. Remote-friendly, based in Islamabad (GMT+5).</p>
-
-      <ul class="roles__list">
-        <li class="roles__row" data-role>
-          <a href="mailto:abdullah.asghar.cs@gmail.com?subject=Full%20Stack%20JavaScript%20Developer%20role" data-cursor="view">
-            <span class="roles__idx">01</span>
-            <span class="roles__body">
-              <span class="roles__name">FULL STACK JAVASCRIPT DEVELOPER</span>
-              <span class="roles__stack">REACT · NEXT.JS · NODE · TYPESCRIPT · FIREBASE · MONGODB</span>
-            </span>
-            <span class="roles__status"><i class="roles__pulse"></i>AVAILABLE</span>
-            <span class="roles__arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li class="roles__row" data-role>
-          <a href="mailto:abdullah.asghar.cs@gmail.com?subject=UI%2FUX%20Designer%20and%20Developer%20role" data-cursor="view">
-            <span class="roles__idx">02</span>
-            <span class="roles__body">
-              <span class="roles__name">UI/UX DESIGNER AND DEVELOPER</span>
-              <span class="roles__stack">DESIGN SYSTEMS · GSAP · FRAMER MOTION · WEBGL · PROTOTYPING</span>
-            </span>
-            <span class="roles__status"><i class="roles__pulse"></i>AVAILABLE</span>
-            <span class="roles__arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li class="roles__row" data-role>
-          <a href="mailto:abdullah.asghar.cs@gmail.com?subject=Full%20Stack%20Software%20and%20Web%20Developer%20role" data-cursor="view">
-            <span class="roles__idx">03</span>
-            <span class="roles__body">
-              <span class="roles__name">FULL STACK SOFTWARE AND WEB DEVELOPER</span>
-              <span class="roles__stack">PYTHON · ML/AI · FLUTTER · STRIPE · REST APIs · SYSTEM DESIGN</span>
-            </span>
-            <span class="roles__status"><i class="roles__pulse"></i>AVAILABLE</span>
-            <span class="roles__arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-      </ul>
     </section>
 
     <!-- ============ CONTACT ============ -->
-    <section class="contact" id="contact">
-      <span class="contact__label reveal-fade">GOT A PROJECT? A ROLE? A WILD IDEA?</span>
-      <h2 class="contact__title">
-        <span class="contact__title-line" data-contact-line><span>LET’S BUILD</span></span>
-        <span class="contact__title-line" data-contact-line><span><em>SOMETHING</em></span></span>
-      </h2>
-      <a href="mailto:abdullah.asghar.cs@gmail.com" class="contact__email" data-cursor="link" data-magnetic>
-        <span class="contact__email-text">ABDULLAH.ASGHAR.CS@GMAIL.COM</span>
-        <span class="contact__email-hover" aria-hidden="true">ABDULLAH.ASGHAR.CS@GMAIL.COM</span>
-      </a>
-      <div class="contact__socials">
-        <a href="https://github.com/abdullahasghar966" target="_blank" rel="noopener" data-cursor="link" data-magnetic>GITHUB</a>
-        <a href="https://www.linkedin.com/in/abdullah-asghar6767/" target="_blank" rel="noopener" data-cursor="link" data-magnetic>LINKEDIN</a>
-        <a href="mailto:abdullah.asghar.cs@gmail.com" data-cursor="link" data-magnetic>EMAIL</a>
+    <section class="contact" data-grid-band aria-labelledby="contact-title">
+      <div class="container contact_inner">
+        <div class="card contact_card">
+          <h2 class="h3" id="contact-title">Ready to build something that feels good?</h2>
+          <a class="btn" data-btn href="mailto:abdullah.asghar.cs@gmail.com?subject=Let%E2%80%99s%20build%20something">Email me</a>
+        </div>
+        <div class="contact_panel">
+          <p class="contact_count"><span data-count="23">0</span><span class="contact_count-side"><b>public repos</b><span class="note">and counting</span></span></p>
+          <div class="clock" data-analog aria-label="Local time in Islamabad">
+            <span class="clock_ticks"></span>
+            <span class="clock_hand clock_hand--h"></span>
+            <span class="clock_hand clock_hand--m"></span>
+            <span class="clock_hand clock_hand--s"></span>
+            <span class="clock_pin"></span>
+            <p class="clock_caption label">Islamabad · <span data-clock="short">--:--</span></p>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="container faq_grid">
+        <div class="faq_intro">
+          <p class="note">FAQ</p>
+          <h2 class="h2" id="faq-title">Good questions, straight answers</h2>
+        </div>
+        <div class="faq_list">
+          <div class="faq_item is-open">
+            <button class="faq_aside" aria-expanded="true"><span class="faq_question">Are you available right now?</span><span class="faq_toggle" aria-hidden="true"></span></button>
+            <div class="faq_body"><div class="faq_body-inner"><p class="faq_answer">Yes. I’m open to full-time roles, freelance projects and collaborations, and I can start immediately.</p></div></div>
+          </div>
+          <div class="faq_item">
+            <button class="faq_aside" aria-expanded="false"><span class="faq_question">Where are you based?</span><span class="faq_toggle" aria-hidden="true"></span></button>
+            <div class="faq_body" inert><div class="faq_body-inner"><p class="faq_answer">Islamabad, Pakistan (GMT+5). I work remotely and overlap comfortably with European and Gulf hours.</p></div></div>
+          </div>
+          <div class="faq_item">
+            <button class="faq_aside" aria-expanded="false"><span class="faq_question">Do you design, develop, or both?</span><span class="faq_toggle" aria-hidden="true"></span></button>
+            <div class="faq_body" inert><div class="faq_body-inner"><p class="faq_answer">Both. I design the interface and the motion, then build it myself, so nothing gets lost in handoff.</p></div></div>
+          </div>
+          <div class="faq_item">
+            <button class="faq_aside" aria-expanded="false"><span class="faq_question">Do you use AI to write code?</span><span class="faq_toggle" aria-hidden="true"></span></button>
+            <div class="faq_body" inert><div class="faq_body-inner"><p class="faq_answer">I use AI tools to move faster, but I read, test and understand every line before it ships.</p></div></div>
+          </div>
+          <div class="faq_item">
+            <button class="faq_aside" aria-expanded="false"><span class="faq_question">What stack do you prefer?</span><span class="faq_toggle" aria-hidden="true"></span></button>
+            <div class="faq_body" inert><div class="faq_body-inner"><p class="faq_answer">React or Next.js with TypeScript, GSAP and Lenis for motion, Three.js or raw WebGL for 3D, and Node, Firebase or MongoDB behind it. I pick what the project needs.</p></div></div>
+          </div>
+          <div class="faq_item">
+            <button class="faq_aside" aria-expanded="false"><span class="faq_question">How do we start?</span><span class="faq_toggle" aria-hidden="true"></span></button>
+            <div class="faq_body" inert><div class="faq_body-inner"><p class="faq_answer">Send an email with what you’re building and when you need it. I’ll reply with questions, a rough plan and a timeline.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OUTRO ============ -->
+    <section class="outro" aria-label="Always shipping, always learning">
+      <div class="container">
+        <div class="outro_title" data-outro aria-hidden="true">
+          <div class="outro_line">
+            <span class="outro_w" style="--wave:0">Always</span>
+            <span class="outro_w" style="--wave:1">shipping,</span>
+            <span class="outro_w" style="--wave:2">always</span>
+            <span class="outro_w" style="--wave:1.4">learning</span>
+          </div>
+        </div>
+        <p class="sr-only">Always shipping, always learning.</p>
+      </div>
+    </section>
+
+    <section class="footer-stage" data-footer-open aria-hidden="true"></section>
   </main>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="footer__grid">
-      <div class="footer__col">
-        <span class="footer__label">PAGES</span>
-        <a href="#home" data-cursor="link">HOME</a>
-        <a href="#work" data-cursor="link">WORK</a>
-        <a href="#about" data-cursor="link">ABOUT</a>
-        <a href="#stack" data-cursor="link">STACK</a>
-        <a href="#telemetry" data-cursor="link">DATA</a>
-        <a href="#roles" data-cursor="link">ROLES</a>
-        <a href="#contact" data-cursor="link">CONTACT</a>
-      </div>
-      <div class="footer__col">
-        <span class="footer__label">FOLLOW</span>
-        <a href="https://github.com/abdullahasghar966" target="_blank" rel="noopener" data-cursor="link">GITHUB</a>
-        <a href="https://www.linkedin.com/in/abdullah-asghar6767/" target="_blank" rel="noopener" data-cursor="link">LINKEDIN</a>
-        <a href="mailto:abdullah.asghar.cs@gmail.com" data-cursor="link">EMAIL</a>
-      </div>
-      <div class="footer__col footer__col--meta">
-        <span class="footer__label">LOCAL TIME</span>
-        <span class="footer__time">ISLAMABAD — <span id="footer-clock">--:--:--</span> PKT</span>
-        <span class="footer__label footer__label--gap">STATUS</span>
-        <span class="footer__status"><i class="footer__pulse"></i> OPEN TO FULL-TIME · FREELANCE · COLLABS</span>
-      </div>
-      <button class="footer__top" id="back-to-top" data-cursor="link" data-magnetic aria-label="Back to top">↑<span>TOP</span></button>
-    </div>
-
-    <div class="footer__big" aria-hidden="true">
-      <span class="footer__big-line" data-footer-line>ALWAYS</span>
-      <span class="footer__big-line footer__big-line--accent" data-footer-line>SHIPPING.</span>
-    </div>
-
-    <div class="footer__legal">
-      <span>©2026 ABDULLAH ASGHAR — ALL RIGHTS RESERVED</span>
-      <span>DESIGNED &amp; BUILT BY ABDULLAH — VITE · GSAP · LENIS</span>
-    </div>
+  <footer class="sr-only">
+    <p>Abdullah Asghar — <a href="mailto:abdullah.asghar.cs@gmail.com">abdullah.asghar.cs@gmail.com</a>, <a href="https://github.com/abdullahasghar966">GitHub</a>, <a href="https://www.linkedin.com/in/abdullah-asghar6767/">LinkedIn</a>.</p>
   </footer>
 
   <script type="module" src="./src/main.js"></script>

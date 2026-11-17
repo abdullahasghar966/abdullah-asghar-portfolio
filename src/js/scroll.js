@@ -1,79 +1,96 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
-import { REDUCED, qs, qsa } from './utils.js';
+import { REDUCED, TOUCH } from './utils.js';
 
 let lenis = null;
+export const getLenis = () => lenis;
 
-export function getLenis() {
+/**
+ * Lenis, tuned like the reference: 1.4s expo-out glide, a slightly faster
+ * wheel, native touch scrolling. Ticked by GSAP so Lenis, ScrollTrigger and
+ * every tween share one requestAnimationFrame.
+ */
+export function initScroll() {
+  history.scrollRestoration = 'manual';
+  if (REDUCED) return null;
+
+  lenis = new Lenis({
+    duration: 1.4,
+    easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    syncTouch: false,
+    wheelMultiplier: 1.6,
+    autoRaf: false,
+  });
+  lenis.on('scroll', ScrollTrigger.update);
+  if (import.meta.env.DEV) window.__lenis = lenis;
+  gsap.ticker.add((time) => lenis.raf(time * 1000));
+  gsap.ticker.lagSmoothing(0);
   return lenis;
 }
 
-export function scrollTo(target, opts = {}) {
-  if (lenis) {
-    lenis.scrollTo(target, { duration: 1.4, force: true, easing: (t) => 1 - Math.pow(1 - t, 4), ...opts });
-  } else {
-    const el = typeof target === 'string' ? qs(target) : target;
-    if (typeof target === 'number') window.scrollTo({ top: target, behavior: 'smooth' });
-    else el?.scrollIntoView({ behavior: 'smooth' });
-  }
+export function scrollToTarget(target, opts = {}) {
+  if (lenis) lenis.scrollTo(target, { offset: 0, ...opts, immediate: REDUCED || opts.immediate });
+  else if (typeof target === 'number') window.scrollTo(0, target);
+  else (typeof target === 'string' ? document.querySelector(target) : target)?.scrollIntoView();
 }
 
-export function initScroll() {
-  if (!REDUCED) {
-    lenis = new Lenis({
-      autoRaf: false,
-      lerp: 0.09,
-      wheelMultiplier: 1,
-    });
-
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => lenis.raf(time * 1000));
-    gsap.ticker.lagSmoothing(0);
+/**
+ * Idle snap: 350ms after the last wheel input, settle onto the nearest stop.
+ * Past 30% of the gap in the travel direction it goes forward, otherwise back.
+ */
+export class Snap {
+  constructor(getStops) {
+    this.getStops = getStops;
+    this.active = false;
+    this.touching = false;
+    if (TOUCH) {
+      const t = (e) => { this.touching = e.type === 'touchstart'; if (!this.touching) this.arm(); };
+      ['touchstart', 'touchend', 'touchcancel'].forEach((n) => window.addEventListener(n, t, { passive: true }));
+    }
   }
 
-  // page scroll progress bar
-  gsap.to('#progress-bar', {
-    scaleX: 1,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: document.body,
-      start: 'top top',
-      end: 'bottom bottom',
-      scrub: 0.3,
-    },
-  });
-
-  // smooth anchor navigation (nav + footer + menu links)
-  qsa('a[href^="#"]').forEach((a) => {
-    a.addEventListener('click', (e) => {
-      const id = a.getAttribute('href');
-      if (id.length > 1 && qs(id)) {
-        e.preventDefault();
-        scrollTo(id, { offset: 0 });
+  watch(on) {
+    this.off?.();
+    this.off = null;
+    clearTimeout(this.timer);
+    if (!on || REDUCED || !lenis) return;
+    let last = lenis.targetScroll;
+    this.dir = lenis.direction || 1;
+    const fn = () => {
+      if (lenis.targetScroll !== last) {
+        this.dir = Math.sign(lenis.targetScroll - last) || this.dir;
+        last = lenis.targetScroll;
+        this.arm();
       }
+    };
+    lenis.on('scroll', fn);
+    this.off = () => lenis.off('scroll', fn);
+    this.arm();
+  }
+
+  arm() {
+    if (!this.off) return;
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => this.snap(), 350);
+  }
+
+  snap() {
+    if (this.touching || !lenis || lenis.isStopped) return;
+    const stops = this.getStops();
+    const y = lenis.targetScroll;
+    const i = stops.findIndex((s) => s > y);
+    if (i < 1) return;
+    const a = stops[i - 1];
+    const gap = stops[i] - a;
+    const t = (y - a) / gap;
+    const to = (this.dir > 0 ? t > 0.3 : 1 - t <= 0.3) ? stops[i] : a;
+    const dist = Math.abs(to - y);
+    if (dist <= 1) return;
+    lenis.scrollTo(to, {
+      duration: gsap.utils.clamp(0.5, 1, (dist / gap) * 2),
+      easing: (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2),
     });
-  });
-
-  // hide nav when scrolling down, show when scrolling up
-  const nav = qs('#nav');
-  let navHidden = false;
-  ScrollTrigger.create({
-    start: 'top top',
-    end: 'max',
-    onUpdate(self) {
-      const goingDown = self.direction === 1;
-      const pastHero = self.scroll() > window.innerHeight * 0.9;
-      const shouldHide = goingDown && pastHero;
-      if (shouldHide !== navHidden) {
-        navHidden = shouldHide;
-        gsap.to(nav, {
-          yPercent: shouldHide ? -110 : 0,
-          duration: 0.5,
-          ease: 'power3.out',
-          overwrite: 'auto',
-        });
-      }
-    },
-  });
+  }
 }
