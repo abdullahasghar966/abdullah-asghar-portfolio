@@ -1,6 +1,6 @@
 # Abdullah Asghar — Portfolio 2026
 
-**🔗 Live site:** [abdullah-asghar-portfolio-ten.vercel.app](https://abdullah-asghar-portfolio-ten.vercel.app)
+**🔗 Live site:** [abdullahasghar.vercel.app](https://abdullahasghar.vercel.app)
 
 A Lando-Norris-inspired, animation-first portfolio. Giant condensed typography, volt-on-black palette, smooth scrolling and scroll-driven storytelling — built to prove the craft it describes.
 
